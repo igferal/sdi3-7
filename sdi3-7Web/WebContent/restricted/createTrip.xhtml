@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template-general.xhtml">
+
+	<ui:define name="titulo">
+      #{msgs.title_createTrip}
+    </ui:define>
+
+	<ui:define name="cuerpo">
+
+		<h1>#{msgs.createTrip_title}</h1>
+		<p:selectBooleanCheckbox>
+			<p:ajax update="@all"
+				listener="#{tripController.fillWithPredeterminatedTrip}" />
+		#{msgs.fillTrip}</p:selectBooleanCheckbox>
+		
+		<h:form id="formulario">
+			<ui:include src="/snippets/tripForm.xhtml" />
+		</h:form>
+
+		<p:commandButton value="#{msgs.createTrip_enviar}" id="enviar"
+			styleClass="ui-priority-primary" action="#{tripController.save}"
+			form="formulario" update="@all" />
+
+		
+
+	</ui:define>
+
+	<ui:define name="pie">
+	</ui:define>
+
+</ui:composition>

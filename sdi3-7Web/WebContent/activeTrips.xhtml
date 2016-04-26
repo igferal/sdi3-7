@@ -1,0 +1,75 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template-general.xhtml">
+
+	<ui:define name="titulo">
+      #{msgs.tituloHead}
+    </ui:define>
+
+	<ui:define name="cuerpo">
+
+		<h1>#{msgs.viajesActivos}</h1>
+
+		<h:form>
+			<p:dataTable var="trip" value="#{activeTrips.trips}" rows="10"
+				paginator="true"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="5,10,15"
+				selectionMode="single" selection="#{activeTrips.selectedTrip}" rowKey="#{trip.id}" sortMode="multiple">
+				
+				<p:ajax event="rowSelect" listener="#{activeTrips.onRowSelect}" />
+				
+				<p:column headerText="Id" sortBy="#{trip.id}" filterBy="#{trip.id}">
+					<h:outputText value="#{trip.id}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_ciudadOrigen}"
+					filterBy="#{trip.departure.city}" sortBy="#{trip.departure.city}">
+					<h:outputText value="#{trip.departure.city}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_fechaSalida}"
+					sortBy="#{trip.departureDate}" filterBy="#{trip.departureDate}">
+					<h:outputText value="#{activeTrips.formattedDate(trip.departureDate)}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_ciudadDestino}"
+					sortBy="#{trip.destination.city}"
+					filterBy="#{trip.destination.city}">
+					<h:outputText value="#{trip.destination.city}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_fechaLlegada}"
+					sortBy="#{trip.arrivalDate}" filterBy="#{trip.departure.city}">
+					<h:outputText value="#{activeTrips.formattedDate(trip.arrivalDate)}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_fechaInscripcion}"
+					sortBy="#{trip.closingDate}" filterBy="#{trip.closingDate}">
+					<h:outputText value="#{activeTrips.formattedDate(trip.closingDate)}" />
+				</p:column>
+
+				<p:column headerText="#{msgs.createTrip_costeEstimado}"
+					sortBy="#{trip.estimatedCost}" filterBy="#{trip.estimatedCost}">
+			
+					<h:outputText value="#{trip.estimatedCost}">
+						<f:convertNumber currencySymbol="€" type="currency" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+
+
+	</ui:define>
+
+
+	<ui:define name="pie">
+
+
+	</ui:define>
+
+</ui:composition>
+

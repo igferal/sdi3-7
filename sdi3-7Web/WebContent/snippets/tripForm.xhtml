@@ -1,0 +1,168 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+	<p:messages showDetail="true" autoUpdate="true" globalOnly="true"
+		closable="true" />
+
+	<p:panelGrid columns="2" layout="grid" class="ui-noborder">
+		<p:panelGrid columns="1" layout="grid" class="ui-noborder">
+			<h2>#{msgs.createTrip_origen}</h2>
+			<h:outputLabel for="calleOrigen"
+				value="#{msgs.createTrip_calleOrigen}" />
+			<p:inputText id="calleOrigen"
+				value="#{tripController.departure.address}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredCalleOrigen}" />
+			<p:message for="calleOrigen" styleClass="error" />
+
+
+			<h:outputText value="#{msgs.createTrip_ciudadOrigen}" />
+			<p:autoComplete id="ciudadOrigen"
+				value="#{tripController.departure.city}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredCiudadOrigen}"
+				completeMethod="#{tripController.completeList}" var="c"
+				itemLabel="#{c}" itemValue="#{c}" />
+			<p:message for="ciudadOrigen" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_provinciaOrigen}" />
+			<p:autoComplete id="provinciaOrigen"
+				value="#{tripController.departure.state}" required="true"
+				completeMethod="#{tripController.completeList}" var="c"
+				itemLabel="#{c}" itemValue="#{c}"
+				requiredMessage="#{msgs.createTrip_requiredProvinciaOrigen}" />
+			<p:message for="provinciaOrigen" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_paisOrigen}" />
+			<p:inputText id="paisOrigen"
+				value="#{tripController.departure.country}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredPaisOrigen}" />
+			<p:message for="paisOrigen" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_codigoPostalOrigen}" />
+			<p:inputText id="codigoPostalOrigen"
+				value="#{tripController.departure.zipCode}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredCodigoPostalOrigen}" />
+			<p:message for="codigoPostalOrigen" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_coordenadasOrigen}" />
+			<p:inputText id="coordenadasOrigen"
+				validatorMessage="#{msgs.createForm_coordenadasMal}"
+				value="#{tripController.coordenadasOrigen}">
+				<f:validateRegex pattern="[[0-9]+.[0-9*]]+C[[0-9]+.[0-9*]]+|" />
+			</p:inputText>
+			<p:message for="coordenadasOrigen" styleClass="error" />
+
+
+		</p:panelGrid>
+
+		<p:panelGrid columns="1" layout="grid" class="ui-noborder">
+			<h2>#{msgs.createTrip_destino}</h2>
+			<h:outputText value="#{msgs.createTrip_calleDestino}" />
+			<p:inputText id="calleDestino"
+				value="#{tripController.arrival.address}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredCalleDestino}" />
+			<p:message for="calleDestino" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_ciudadDestino}" />
+			<p:autoComplete id="ciudadDestino"
+				value="#{tripController.arrival.city}" required="true"
+				completeMethod="#{tripController.completeList}" var="c"
+				itemLabel="#{c}" itemValue="#{c}"
+				requiredMessage="#{msgs.createTrip_requiredCiudadDestino}" />
+			<p:message for="ciudadDestino" styleClass="error" />
+
+
+			<h:outputText value="#{msgs.createTrip_provinciaDestino}" />
+			<p:autoComplete id="provinciaDestino"
+				value="#{tripController.arrival.state}" required="true"
+				completeMethod="#{tripController.completeList}" var="c"
+				itemLabel="#{c}" itemValue="#{c}"
+				requiredMessage="#{msgs.createTrip_requiredProvinciaDestino}" />
+			<p:message for="provinciaDestino" styleClass="error" />
+
+
+			<h:outputText value="#{msgs.createTrip_paisDestino}" />
+			<p:inputText id="paisDestino"
+				value="#{tripController.arrival.country}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredPaisDestino}" />
+			<p:message for="paisDestino" styleClass="error" />
+
+			<h:outputText value="#{msgs.createTrip_codigoPostalDestino}" />
+			<p:inputText id="codigoPostalDestino"
+				value="#{tripController.arrival.zipCode}" required="true"
+				requiredMessage="#{msgs.createTrip_requiredCodigoPostalDestino}" />
+			<p:message for="codigoPostalDestino" styleClass="error" />
+
+
+
+			<h:outputText value="#{msgs.createTrip_coordenadasDestino}" />
+			<p:inputText id="coordenadasDestino"
+				value="#{tripController.coordenadasDestino}"
+				validatorMessage="#{msgs.createForm_coordenadasMal}">
+				<f:validateRegex pattern="[[0-9]+.[0-9*]]+C[[0-9]+.[0-9*]]+|" />
+			</p:inputText>
+			<p:message for="coordenadasDestino" styleClass="error" />
+		</p:panelGrid>
+	</p:panelGrid>
+
+	<p:panelGrid columns="1" layout="grid" class="ui-noborder">
+
+		<p:outputLabel for="fechaSalida"
+			value="#{msgs.createTrip_fechaSalida}" />
+		<p:calendar id="fechaSalida" pattern="MM/dd/yyyy HH:mm:ss"
+			value="#{tripController.dateSalida}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredFechaSalida}" />
+		<p:message for="fechaSalida" styleClass="error" />
+
+		<p:outputLabel for="fechaLlegada"
+			value="#{msgs.createTrip_fechaLlegada}" />
+		<p:calendar id="fechaLlegada" pattern="MM/dd/yyyy HH:mm:ss"
+			value="#{tripController.dateLlegada}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredFechaLlegada}" />
+		<p:message for="fechaLlegada" styleClass="error" />
+
+
+		<p:outputLabel for="fechaInscripcion"
+			value="#{msgs.createTrip_fechaInscripcion}" />
+		<p:calendar id="fechaInscripcion" pattern="MM/dd/yyyy HH:mm:ss"
+			value="#{tripController.dateInscripcion}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredFechaInscripcion}" />
+		<p:message for="fechaInscripcion" styleClass="error" />
+
+
+		<h:outputText value="#{msgs.createTrip_costeEstimado}" />
+		<p:inputText id="costeEstimado"
+			value="#{tripController.costeEstimado}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredCosteEstimado}" />
+		<p:message for="costeEstimado" styleClass="error" />
+
+
+		<h:outputText value="#{msgs.createTrip_plazasDisponibles}" />
+		<p:inputText id="plazasDisponibles"
+			value="#{tripController.plazasDisponibles}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredPlazasDisponibles}" />
+		<p:message for="plazasDisponibles" styleClass="error" />
+
+
+		<h:outputText value="#{msgs.createTrip_plazasMaximas}" />
+		<p:inputText id="plazasMaximas"
+			value="#{tripController.plazasMaximas}" required="true"
+			requiredMessage="#{msgs.createTrip_requiredPlazasMaximas}" />
+		<p:message for="plazasMaximas" styleClass="error" />
+
+
+		<h:outputText value="#{msgs.createTrip_comentarios}" />
+		<p:inputTextarea id="comentarios" rows="5" cols="30" counter="display"
+			maxlength="240"
+			counterTemplate="{0} #{msgs.createTrip_caracteresRestantes}."
+			autoResize="false" value="#{trip.comments}" />
+		<h:outputText id="display" />
+
+	</p:panelGrid>
+
+
+
+</ui:composition>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view locale="#{settings.locale}">
+	<h:head>
+		<title>#{msgs.tituloHead}</title>
+		<link
+			href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+			rel="stylesheet"></link>
+		<style>
+.topAligned {
+	vertical-align: top;
+}
+
+.ui-widget-content .ui-datalist-content {
+	border: none;
+	background: transparent;
+	background-image: none;
+}
+</style>
+	</h:head>
+	<h:body>
+		<h:form id="form-cabecera">
+		<p:selectOneMenu id="menuIdioma" value="#{settings.localeSelected}" style="width:150px;">
+                <p:ajax listener="#{settings.onCountryChange}" update="@all"/>
+                <f:selectItem itemLabel="#{msgs.textoIdioma}" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{settings.languages.keySet()}" />
+            </p:selectOneMenu>
+			<p:menubar id="mimenu">
+				<p:menuitem id="shareMyTrip" value="#{msgs.appName}" url="/" />
+				<p:menuitem id="viajesActivos" value="#{msgs.viajesActivos}"
+					action="#{activeTrips.load}" />
+				<p:menuitem id="misViajesOfertados"
+					value="#{msgs.misViajesOfertados}" action="#{myTrips.load}"
+					rendered="#{not empty LOGGEDIN_USER}" />
+				<p:menuitem id="misViajesImplicados"
+					value="#{msgs.misViajesImplicados}" action="#{involvedTrips.load}"
+					rendered="#{not empty LOGGEDIN_USER}" ajax="false" />
+				<p:menuitem id="crearViaje" value="#{msgs.crearViaje}"
+					url="/restricted/createTrip.xhtml" rendered="#{not empty LOGGEDIN_USER}" />
+
+				<f:facet name="options">
+					<p:button id="login" value="#{msgs.iniciarSesion}" outcome="login"
+						rendered="#{empty LOGGEDIN_USER}" />
+					<p:button id="join" value="#{msgs.registrarse}" outcome="join"
+						rendered="#{empty LOGGEDIN_USER}" />
+				</f:facet>
+
+				<p:submenu id="submenu" label="#{LOGGEDIN_USER.login}" style="float:right"
+					rendered="#{not empty LOGGEDIN_USER}">
+					<p:menuitem id="logout" value="#{msgs.cerrarSesion}"
+						action="#{login.logout}" />
+				</p:submenu>
+			</p:menubar>
+		</h:form>
+
+		<ui:insert name="cuerpo" />
+
+		<ui:insert name="pie" />
+
+	</h:body>
+</f:view>
+</html>
