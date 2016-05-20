@@ -14,8 +14,8 @@ import java.util.Properties;
 import com.sdi.persistence.PersistenceException;
 
 public class Jdbc {
-	private static final String DATABASE_PROPERTIES_FILE = "ejbModule/database.properties";
-	private static final String QUERIES_PROPERTIES_FILE = "ejbModule/sql_queries.properties";
+	private static final String DATABASE_PROPERTIES_FILE = "/database.properties";
+	private static final String QUERIES_PROPERTIES_FILE = "/sql_queries.properties";
 	
 	private static final String DATABASE_URL;
 	private static final String DATABASE_USER;

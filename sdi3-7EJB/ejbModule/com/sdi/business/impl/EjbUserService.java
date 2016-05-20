@@ -1,5 +1,7 @@
 package com.sdi.business.impl;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 
 import com.sdi.business.impl.classes.UserFind;
@@ -23,6 +25,11 @@ public class EjbUserService implements LocalUserService, RemoteUserService {
 	@Override
 	public boolean saveUser(User user) {
 		return new UserSave().save(user);
+	}
+
+	@Override
+	public List<User> findAll() {
+		return new UserFind().findAll();
 	}
 
 }
