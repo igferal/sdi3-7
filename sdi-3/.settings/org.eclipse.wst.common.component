@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="sdi-3">
+    <wb-module deploy-name="sdi3-7">
         <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
         <dependent-module archiveName="sdi3-7EJB.jar" deploy-path="/" handle="module:/resource/sdi3-7EJB/sdi3-7EJB">
             <dependent-object/>
