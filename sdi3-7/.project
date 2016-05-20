@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>sdi3-7EJB</project>
-		<project>sdi3-7Web</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
