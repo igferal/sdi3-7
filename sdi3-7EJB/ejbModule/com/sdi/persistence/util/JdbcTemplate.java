@@ -21,7 +21,7 @@ import com.sdi.persistence.PersistenceException;
  * @author alb
  */
 public class JdbcTemplate {
-
+	
 	private Object generatedKey;
 
 	/**

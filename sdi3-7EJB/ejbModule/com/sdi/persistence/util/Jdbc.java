@@ -23,6 +23,8 @@ public class Jdbc {
 	
 	private static Properties sqlQueries;
 	
+	private static JdbcHelper jdbc = new JdbcHelper(DATABASE_PROPERTIES_FILE);
+	
 	static {
 		Properties dbConfig = loadProperties( DATABASE_PROPERTIES_FILE );
 		sqlQueries = loadProperties( QUERIES_PROPERTIES_FILE );
@@ -41,23 +43,31 @@ public class Jdbc {
 	private static ThreadLocal<Connection> threadLocal = new ThreadLocal<>();
 
 	public static Connection createConnection() {
-		try {
-			Connection con = DriverManager.getConnection(
-					DATABASE_URL, 
-					DATABASE_USER, 
-					DATABASE_PASSWORD
-				);
-			
-			threadLocal.set(con);
-			
-			return con;
-			
-		} catch (SQLTimeoutException e) {
-			throw new PersistenceException("Timeout opennig JDBC conection", e);
-		} catch (SQLException e) {
-			throw new PersistenceException("An unexpected JDBC error has ocurred", e);
-		}
+		Connection con = jdbc.createConnection();
+
+		threadLocal.set(con);
+
+		return con;
 	}
+	
+//	public static Connection createConnection() {
+//		try {
+//			Connection con = DriverManager.getConnection(
+//					DATABASE_URL, 
+//					DATABASE_USER, 
+//					DATABASE_PASSWORD
+//				);
+//			
+//			threadLocal.set(con);
+//			
+//			return con;
+//			
+//		} catch (SQLTimeoutException e) {
+//			throw new PersistenceException("Timeout opennig JDBC conection", e);
+//		} catch (SQLException e) {
+//			throw new PersistenceException("An unexpected JDBC error has ocurred", e);
+//		}
+//	}
 
 	public static Connection getCurrentConnection() {
 		Connection con = threadLocal.get();
@@ -72,9 +82,7 @@ public class Jdbc {
 	}
 
 	public static void close(ResultSet rs, PreparedStatement ps, Connection con) {
-		close(rs);
-		close(ps);
-		close(con);
+		jdbc.close(ps, rs, con);
 	}
 
 	public static void close(PreparedStatement ps, Connection con) {
