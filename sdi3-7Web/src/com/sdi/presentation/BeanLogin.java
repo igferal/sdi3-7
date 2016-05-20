@@ -20,6 +20,7 @@ import com.sdi.model.User;
 @SessionScoped
 public class BeanLogin implements Serializable {
 	private static final long serialVersionUID = 6L;
+
 	private String name;
 	private String password;
 
@@ -28,7 +29,7 @@ public class BeanLogin implements Serializable {
 	}
 
 	public String verify() {
-		UserService login = Factories.services.createUserService();
+		UserService login = Factories.services.getUserService();
 		User user = login.verify(name, password);
 		if (user != null) {
 			putUserInSession(user);
@@ -37,17 +38,23 @@ public class BeanLogin implements Serializable {
 		}
 		Log.info("El usuario [%s] no esta registrado", name);
 		FacesContext context = FacesContext.getCurrentInstance();
-		ResourceBundle bundle = context.getApplication().getResourceBundle(context, "msgs");
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", bundle.getString("login_result_error")));
+		ResourceBundle bundle = context.getApplication().getResourceBundle(
+				context, "msgs");
+		FacesContext.getCurrentInstance().addMessage(
+				null,
+				new FacesMessage(FacesMessage.SEVERITY_ERROR, "", bundle
+						.getString("login_result_error")));
 		return "fallo";
 	}
-	
+
 	public void logout() {
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		FacesContext.getCurrentInstance().getExternalContext()
+				.invalidateSession();
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+			FacesContext.getCurrentInstance().getExternalContext()
+					.redirect("index.xhtml");
 		} catch (IOException e) {
-		
+
 		}
 	}
 
@@ -72,5 +79,5 @@ public class BeanLogin implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 }

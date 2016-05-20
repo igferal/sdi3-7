@@ -1,11 +1,13 @@
 package com.sdi.business.impl;
 
-import com.sdi.business.UserService;
+import javax.ejb.Stateless;
+
 import com.sdi.business.impl.classes.UserFind;
 import com.sdi.business.impl.classes.UserSave;
 import com.sdi.model.User;
 
-public class SimpleUserService implements UserService {
+@Stateless
+public class EjbUserService implements LocalUserService, RemoteUserService {
 
 	@Override
 	public User verify(String login, String password) {

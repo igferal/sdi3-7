@@ -190,9 +190,9 @@ public class BeanTripController {
 			if (respuesta.equals("fallo"))
 				return "fallo";
 
-			tservice = Factories.services.createTripService();
+			tservice = Factories.services.getTripService();
 
-			tservice.saveTrip(trip);
+			tservice.saveTrip(trip.getTripBase());
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "",
 
@@ -236,11 +236,11 @@ public class BeanTripController {
 				context, "msgs");
 		try {
 
-			tservice = Factories.services.createTripService();
+			tservice = Factories.services.getTripService();
 			String respuesta = fechTripInfo(bundle);
 			if (respuesta.equals("fallo"))
 				return "fallo";
-			tservice.update(trip);
+			tservice.update(trip.getTripBase());
 
 			FacesContext.getCurrentInstance().addMessage(null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "",

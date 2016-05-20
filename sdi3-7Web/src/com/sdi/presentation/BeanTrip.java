@@ -20,9 +20,6 @@ import com.sdi.persistence.util.DateUtil;
 @SessionScoped
 public class BeanTrip extends Trip implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -6283148030775995714L;
 
 	public BeanTrip() {
@@ -56,6 +53,24 @@ public class BeanTrip extends Trip implements Serializable {
 		setPromoterId(user.getId());
 		setStatus(TripStatus.OPEN);
 
+	}
+	
+	public Trip getTripBase() {
+		Trip base = new Trip();
+		base.setId(getId());
+		base.setArrivalDate(getArrivalDate());
+		base.setAvailablePax(getAvailablePax());
+		base.setClosingDate(getClosingDate());
+		base.setComments(getComments());
+		base.setDeparture(getDeparture());
+		base.setDepartureDate(getDepartureDate());
+		base.setDestination(getDestination());
+		base.setEstimatedCost(getEstimatedCost());
+		base.setMaxPax(getMaxPax());
+		base.setPromoterId(getPromoterId());
+		base.setStatus(getStatus());
+		
+		return base;
 	}
 
 }

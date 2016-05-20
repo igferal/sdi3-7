@@ -63,8 +63,6 @@ public class BeanInvolvedTrips implements Serializable {
 
 	@PostConstruct
 	public void init() {
-
-		System.out.println("Creando Bean involved trips");
 		list();
 	}
 
@@ -125,7 +123,7 @@ public class BeanInvolvedTrips implements Serializable {
 					.getExternalContext().getSessionMap();
 			User user = (User) session.get("LOGGEDIN_USER");
 
-			SeatService sService = Factories.services.createSeatService();
+			SeatService sService = Factories.services.getSeatService();
 			sService.moveToExcluded(user.getId(), trip.getId());
 			trips.remove(trip);
 			generateFeebackMessages();

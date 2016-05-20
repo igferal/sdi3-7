@@ -18,7 +18,9 @@ import com.sdi.model.UserStatus;
 
 @ManagedBean(name = "join")
 public class BeanJoin implements Serializable {
+
 	private static final long serialVersionUID = 7L;
+
 	private String username;
 	private String nombre;
 	private String apellidos;
@@ -51,7 +53,7 @@ public class BeanJoin implements Serializable {
 		user.setPassword(password);
 		user.setStatus(UserStatus.ACTIVE);
 
-		if (Factories.services.createUserService().saveUser(user)) {
+		if (Factories.services.getUserService().saveUser(user)) {
 			Log.debug("Se ha registrado con éxito al usuario [%s]", username);
 
 			FacesContext context = FacesContext.getCurrentInstance();

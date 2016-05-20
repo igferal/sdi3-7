@@ -1,13 +1,18 @@
 package com.sdi.model;
 
+import java.io.Serializable;
+
 
 /**
  * This class represents a value type
  * @author alb
  */
-public class AddressPoint {
+public class AddressPoint implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String address;
+	
 	public void setAddress(String address) {
 		this.address = address;
 	}

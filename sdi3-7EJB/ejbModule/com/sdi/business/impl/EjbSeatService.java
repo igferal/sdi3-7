@@ -1,13 +1,15 @@
 package com.sdi.business.impl;
 
-import com.sdi.business.SeatService;
+import javax.ejb.Stateless;
+
+import com.sdi.business.impl.classes.SeatFind;
 import com.sdi.business.impl.classes.SeatMoveToAccepted;
 import com.sdi.business.impl.classes.SeatMoveToExcluded;
 import com.sdi.business.impl.classes.SeatMoveToPending;
-import com.sdi.business.impl.classes.SeatFind;
 import com.sdi.model.Seat;
 
-public class SimpleSeatService implements SeatService {
+@Stateless
+public class EjbSeatService implements LocalSeatService, RemoteSeatService {
 
 	@Override
 	public void moveToAccepted(Long idUser, Long idTrip) {
@@ -26,9 +28,7 @@ public class SimpleSeatService implements SeatService {
 
 	@Override
 	public Seat find(Long[] id) {
-		
-		return new SeatFind(id).find();
-		
+		return new SeatFind(id).find();	
 	}
 
 }

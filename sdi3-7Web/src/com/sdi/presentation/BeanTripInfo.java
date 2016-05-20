@@ -32,7 +32,7 @@ public class BeanTripInfo {
 	public void init() {
 
 		System.out.println("Creando Bean info trip");
-		Trip trip = Factories.services.createTripService().findTrip(
+		Trip trip = Factories.services.getTripService().findTrip(
 				(Long) FacesContext.getCurrentInstance().getExternalContext()
 						.getSessionMap().get("tripInfoParam"));
 		setTripDto(DTOAssembler.generateTripDto(trip,
@@ -48,7 +48,7 @@ public class BeanTripInfo {
 		FacesContext context = FacesContext.getCurrentInstance();
 		ResourceBundle bundle = context.getApplication().getResourceBundle(
 				context, "msgs");
-		if (Factories.services.createApplicationService().save(app))
+		if (Factories.services.getApplicationService().save(app))
 			context.addMessage(
 					null,
 					new FacesMessage(FacesMessage.SEVERITY_INFO, "", bundle

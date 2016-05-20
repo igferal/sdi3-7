@@ -68,7 +68,7 @@ public class BeanMyTrips implements Serializable {
 
 		try {
 
-			TripService tservice = Factories.services.createTripService();
+			TripService tservice = Factories.services.getTripService();
 
 			tripsToDelete = new ArrayList<Trip>();
 
@@ -115,7 +115,7 @@ public class BeanMyTrips implements Serializable {
 		User user = (User) session.get("LOGGEDIN_USER");
 
 		try {
-			TripService tservice = Factories.services.createTripService();
+			TripService tservice = Factories.services.getTripService();
 			setTrips(tservice.travelsPromoter(user.getId()));
 			return "exito";
 

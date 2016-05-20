@@ -25,7 +25,7 @@ import com.sdi.model.User;
 public class BeanTripSeats implements Serializable {
 
 	private static final long serialVersionUID = 5188245089243636845L;
-	
+
 	private TripDto tripDto;
 
 	private List<PasajeroInfoDto> acceptedPassengers = new ArrayList<>();
@@ -34,37 +34,38 @@ public class BeanTripSeats implements Serializable {
 
 	@PostConstruct
 	public void init() {
-
-		System.out.println("Creando Bean trip seats");
-
-		 Trip trip = Factories.services.createTripService().findTrip(
-		 (Long) FacesContext.getCurrentInstance().getExternalContext()
-		 .getSessionMap().get("tripSeatsParam"));
-		 setTripDto(DTOAssembler.generateTripDto(trip,
-		 (User) FacesContext.getCurrentInstance().getExternalContext()
-		 .getSessionMap().get("LOGGEDIN_USER")));
+		
+		Trip trip = Factories.services.getTripService().findTrip(
+				(Long) FacesContext.getCurrentInstance().getExternalContext()
+						.getSessionMap().get("tripSeatsParam"));
+		setTripDto(DTOAssembler.generateTripDto(trip,
+				(User) FacesContext.getCurrentInstance().getExternalContext()
+						.getSessionMap().get("LOGGEDIN_USER")));
 
 		putAcceptedPassengers();
 		putPendingPassengers();
 		putExcludedPassengers();
+		
 	}
-	
+
 	public String moveToAccepted(PasajeroInfoDto pas) {
-		Factories.services.createSeatService().moveToAccepted(pas.getIdUsuario(), tripDto.getTrip().getId());
-		
+		Factories.services.getSeatService().moveToAccepted(pas.getIdUsuario(),
+				tripDto.getTrip().getId());
+
 		return "tripSeats.xhtml?faces-redirect=true";
 	}
-	
+
 	public String moveToPending(PasajeroInfoDto pas) {
-		System.out.println(pas);
-		Factories.services.createSeatService().moveToPending(pas.getIdUsuario(), tripDto.getTrip().getId());
-		
+		Factories.services.getSeatService().moveToPending(pas.getIdUsuario(),
+				tripDto.getTrip().getId());
+
 		return "tripSeats.xhtml?faces-redirect=true";
 	}
-	
+
 	public String moveToExcluded(PasajeroInfoDto pas) {
-		Factories.services.createSeatService().moveToExcluded(pas.getIdUsuario(), tripDto.getTrip().getId());
-		
+		Factories.services.getSeatService().moveToExcluded(pas.getIdUsuario(),
+				tripDto.getTrip().getId());
+
 		return "tripSeats.xhtml?faces-redirect=true";
 	}
 
@@ -119,23 +120,23 @@ public class BeanTripSeats implements Serializable {
 					&& dto.getSeatStatus().equals(SeatStatus.EXCLUDED))
 				excludedPassengers.add(dto);
 	}
-	
+
 	public String formattedDate(Date date) {
 		return new SimpleDateFormat("dd/MM/yyyy HH:mm").format(date);
 	}
-	
+
 	public boolean cancelledTrip() {
-		return tripDto.getTrip().getStatus().equals(TripStatus.CANCELLED);	
+		return tripDto.getTrip().getStatus().equals(TripStatus.CANCELLED);
 	}
-	
+
 	public boolean closedTrip() {
 		return tripDto.getTrip().getStatus().equals(TripStatus.CLOSED);
 	}
-	
+
 	public boolean openTrip() {
 		return tripDto.getTrip().getStatus().equals(TripStatus.OPEN);
 	}
-	
+
 	public boolean doneTrip() {
 		return tripDto.getTrip().getStatus().equals(TripStatus.DONE);
 	}

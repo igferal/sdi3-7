@@ -30,13 +30,14 @@ public class BeanSettings implements Serializable {
 	public Locale getLocale() {
 		// Idioma del navegador la primera vez que se accede a getLocale()
 		if (locale == null)
-			locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
-		
+			locale = FacesContext.getCurrentInstance().getExternalContext()
+					.getRequestLocale();
+
 		// En caso de que no haya fichero de properties para el idioma del
 		// navegador, se establece español por defecto
 		if (!locales.containsKey(locale.getLanguage()))
 			locale = new Locale("es");
-		
+
 		return (locale);
 	}
 
@@ -45,22 +46,23 @@ public class BeanSettings implements Serializable {
 				.getExternalContext().getRealPath("/WEB-INF/classes"));
 
 		for (File file : folder.listFiles())
-			if (file.isFile() && file.getName().startsWith("messages") &&
-					file.getName().contains("_")
+			if (file.isFile() && file.getName().startsWith("messages")
+					&& file.getName().contains("_")
 					&& file.getName().endsWith(".properties")) {
-				locales.put(file.getName().split("_")[1]
-						.split("\\.")[0], new Locale(file.getName().split("_")[1]
-						.split("\\.")[0]));
+				locales.put(
+						file.getName().split("_")[1].split("\\.")[0],
+						new Locale(file.getName().split("_")[1].split("\\.")[0]));
 			}
 
 	}
-	
+
 	private void chargeLanguages() {
 		languages.clear();
 		String display;
-		for (Locale locale:locales.values()) {
+		for (Locale locale : locales.values()) {
 			display = locale.getDisplayLanguage(getLocale());
-			display = display.substring(0, 1).toUpperCase().concat(display.substring(1, display.length()));
+			display = display.substring(0, 1).toUpperCase()
+					.concat(display.substring(1, display.length()));
 			languages.put(display, locale.getLanguage());
 		}
 	}
@@ -76,7 +78,7 @@ public class BeanSettings implements Serializable {
 	public void setLocales(Map<String, Locale> locales) {
 		this.locales = locales;
 	}
-	
+
 	public void onCountryChange() {
 		locale = locales.get(languages.get(localeSelected));
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
@@ -90,7 +92,7 @@ public class BeanSettings implements Serializable {
 	public void setLocaleSelected(String localeSelected) {
 		this.localeSelected = localeSelected;
 	}
-	
+
 	public Map<String, String> getLanguages() {
 		return languages;
 	}

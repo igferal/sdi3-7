@@ -3,21 +3,21 @@ package com.sdi.business.impl;
 import java.util.Date;
 import java.util.List;
 
-import com.sdi.business.TripService;
+import javax.ejb.Stateless;
+
 import com.sdi.business.impl.classes.ListActiveTrip;
 import com.sdi.business.impl.classes.ListPromoterTrips;
-import com.sdi.business.impl.classes.TripSave;
 import com.sdi.business.impl.classes.TripFind;
-import com.sdi.business.impl.classes.TripsUpdateStatusTask;
+import com.sdi.business.impl.classes.TripSave;
 import com.sdi.business.impl.classes.TripUpdate;
+import com.sdi.business.impl.classes.TripsUpdateStatusTask;
 import com.sdi.model.Trip;
 
-public class SimpleTripService implements TripService {
+@Stateless
+public class EjbTripService implements LocalTripService, RemoteTripService {
 
 	@Override
 	public void saveTrip(Trip trip) {
-
-		
 		new TripSave(trip).save();
 	}
 

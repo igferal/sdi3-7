@@ -43,7 +43,7 @@ public class BeanActiveTrips implements Serializable {
 	public String listMyTrips() {
 
 		try {
-			TripService tservice = Factories.services.createTripService();
+			TripService tservice = Factories.services.getTripService();
 			setTrips(tservice.listActiveTrips(new Date()));
 			return "exito";
 
@@ -56,7 +56,7 @@ public class BeanActiveTrips implements Serializable {
 	public String list() {
 
 		try {
-			TripService tservice = Factories.services.createTripService();
+			TripService tservice = Factories.services.getTripService();
 			setTrips(tservice.listActiveTrips(new Date()));
 			return "exito";
 

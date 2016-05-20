@@ -13,7 +13,7 @@ import com.sdi.persistence.SeatDao;
 public class SeatMoveToAccepted {
 
 	public void accept(Long idUser, Long idTrip) {
-		Trip trip = Factories.services.createTripService().findTrip(idTrip);
+		Trip trip = Factories.services.getTripService().findTrip(idTrip);
 
 		if (trip.getClosingDate().after(new Date())
 				&& trip.getAvailablePax() > 0) {
@@ -39,7 +39,7 @@ public class SeatMoveToAccepted {
 	}
 
 	private void decrementAvailablePax(Long idTrip) {
-		Trip trip = Factories.services.createTripService().findTrip(idTrip);
+		Trip trip = Factories.services.getTripService().findTrip(idTrip);
 		trip.setAvailablePax(trip.getAvailablePax() - 1);
 		Factories.persistence.newTripDao().update(trip);
 		Log.debug("Plazas disponibles decrementadas en 1 unidad del viaje [%s]", idTrip);

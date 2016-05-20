@@ -13,7 +13,7 @@ import com.sdi.persistence.SeatDao;
 public class SeatMoveToExcluded {
 
 	public void exclude(Long idUser, Long idTrip) {
-		Trip trip = Factories.services.createTripService().findTrip(idTrip);
+		Trip trip = Factories.services.getTripService().findTrip(idTrip);
 
 		if (trip.getClosingDate().after(new Date())) {
 			SeatDao seatDao = Factories.persistence.newSeatDao();
@@ -41,7 +41,7 @@ public class SeatMoveToExcluded {
 	}
 
 	private void incrementAvailablePax(Long idTrip) {
-		Trip trip = Factories.services.createTripService().findTrip(idTrip);
+		Trip trip = Factories.services.getTripService().findTrip(idTrip);
 		trip.setAvailablePax(trip.getAvailablePax() + 1);
 		Factories.persistence.newTripDao().update(trip);
 		Log.debug(
