@@ -1,15 +1,7 @@
 package com.sdi.business.impl.classes;
 
-import java.util.Date;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.sdi.infrastructure.Factories;
-import com.sdi.model.Trip;
-import com.sdi.model.TripStatus;
-import com.sdi.persistence.TripDao;
-import com.sdi.persistence.util.DateUtil;
 
 public class TripsUpdateStatusTask {
 	public static final int interval = 3000;

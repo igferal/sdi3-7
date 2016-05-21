@@ -3,6 +3,11 @@ package com.sdi.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.sun.xml.internal.txw2.annotation.XmlElement;
+
 /**
  * This class is not an entity, it is a DTO with the same fields as a row in the
  * table
@@ -11,6 +16,7 @@ import java.util.Date;
  * @author alb
  * 
  */
+@XmlRootElement(name="viaje")
 public class Trip implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -30,6 +36,7 @@ public class Trip implements Serializable {
 
 	private Long promoterId;
 
+	@XmlAttribute
 	public AddressPoint getDeparture() {
 		return departure;
 	}
@@ -46,6 +53,7 @@ public class Trip implements Serializable {
 		this.status = status;
 	}
 
+	@XmlElement
 	public Long getId() {
 		return id;
 	}
@@ -54,6 +62,7 @@ public class Trip implements Serializable {
 		this.id = id;
 	}
 
+	@XmlAttribute
 	public AddressPoint getDestination() {
 		return destination;
 	}
@@ -78,6 +87,7 @@ public class Trip implements Serializable {
 		this.departureDate = departureDate;
 	}
 
+	@XmlAttribute
 	public Date getClosingDate() {
 		return closingDate;
 	}
@@ -86,6 +96,7 @@ public class Trip implements Serializable {
 		this.closingDate = closingDate;
 	}
 
+	@XmlElement
 	public Integer getAvailablePax() {
 		return availablePax;
 	}
@@ -93,7 +104,8 @@ public class Trip implements Serializable {
 	public void setAvailablePax(Integer availablePax) {
 		this.availablePax = availablePax;
 	}
-
+	
+	@XmlElement
 	public Integer getMaxPax() {
 		return maxPax;
 	}
@@ -101,7 +113,8 @@ public class Trip implements Serializable {
 	public void setMaxPax(Integer maxPax) {
 		this.maxPax = maxPax;
 	}
-
+	
+	@XmlElement
 	public Double getEstimatedCost() {
 		return estimatedCost;
 	}
@@ -110,6 +123,7 @@ public class Trip implements Serializable {
 		this.estimatedCost = estimatedCost;
 	}
 
+	@XmlElement
 	public String getComments() {
 		return comments;
 	}
@@ -118,6 +132,7 @@ public class Trip implements Serializable {
 		this.comments = comments;
 	}
 
+	
 	public Long getPromoterId() {
 		return promoterId;
 	}
