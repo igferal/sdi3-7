@@ -36,7 +36,7 @@ public class Trip implements Serializable {
 
 	private Long promoterId;
 
-	@XmlAttribute
+	@XmlElement
 	public AddressPoint getDeparture() {
 		return departure;
 	}
@@ -62,7 +62,7 @@ public class Trip implements Serializable {
 		this.id = id;
 	}
 
-	@XmlAttribute
+	@XmlElement
 	public AddressPoint getDestination() {
 		return destination;
 	}
@@ -87,7 +87,7 @@ public class Trip implements Serializable {
 		this.departureDate = departureDate;
 	}
 
-	@XmlAttribute
+	@XmlElement
 	public Date getClosingDate() {
 		return closingDate;
 	}

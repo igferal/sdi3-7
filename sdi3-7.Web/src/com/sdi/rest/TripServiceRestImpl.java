@@ -1,8 +1,6 @@
 package com.sdi.rest;
 
 import java.util.List;
-
-import com.sdi.business.SeatService;
 import com.sdi.business.TripService;
 import com.sdi.business.exception.EntityNotFoundException;
 import com.sdi.infrastructure.Factories;
