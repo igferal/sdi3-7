@@ -3,12 +3,14 @@ package com.sdi.business.impl;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.UserFind;
 import com.sdi.business.impl.classes.UserSave;
 import com.sdi.model.User;
 
 @Stateless
+@WebService(name="UserService")
 public class EjbUserService implements LocalUserService, RemoteUserService {
 
 	@Override

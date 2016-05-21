@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.ListActiveTrip;
 import com.sdi.business.impl.classes.ListPromoterTrips;
@@ -14,6 +15,7 @@ import com.sdi.business.impl.classes.TripsUpdateStatusTask;
 import com.sdi.model.Trip;
 
 @Stateless
+@WebService(name="TripService")
 public class EjbTripService implements LocalTripService, RemoteTripService {
 
 	@Override
