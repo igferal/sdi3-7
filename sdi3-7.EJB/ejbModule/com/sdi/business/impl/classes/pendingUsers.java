@@ -7,13 +7,13 @@ import com.sdi.infrastructure.Factories;
 import com.sdi.model.Application;
 import com.sdi.model.User;
 
-public class pendingUsers {
-	
+public class PendingUsers {
+
 	private Long idPromotor;
-	
+
 	private Long idTrip;
 
-	public pendingUsers(Long idPromotor, Long idTrip) {
+	public PendingUsers(Long idPromotor, Long idTrip) {
 		super();
 		this.idPromotor = idPromotor;
 		this.idTrip = idTrip;
@@ -28,18 +28,17 @@ public class pendingUsers {
 
 		for (Application application : applications) {
 
-			if (!application.getUserId().equals(idPromotor))
-				pendientes.add(Factories.persistence.newUserDao().findById(
-						application.getUserId()));
+			if (!application.getUserId().equals(idPromotor)) {
+				User user = Factories.persistence.newUserDao().findById(
+						application.getUserId());
+				user.setPassword(null);
+				pendientes.add(user);
+			}
 
 		}
 
 		return pendientes;
 
 	}
-
-
-	
-	
 
 }
