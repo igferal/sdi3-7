@@ -3,13 +3,16 @@ package com.sdi.business.impl;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.RatingDelete;
 import com.sdi.business.impl.classes.RatingFind;
 import com.sdi.model.Rating;
 
 @Stateless
-public class EjbRatingService implements LocalRatingService, RemoteRatingService {
+@WebService(name = "RatingService")
+public class EjbRatingService implements LocalRatingService,
+		RemoteRatingService {
 
 	@Override
 	public List<Rating> findLastMonthDone() {
