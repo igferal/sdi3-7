@@ -12,17 +12,24 @@ import javax.ws.rs.core.MediaType;
 
 import com.sdi.business.exception.EntityNotFoundException;
 import com.sdi.model.Trip;
+import com.sdi.model.User;
 
 @Path("/TripServiceRs")
 public interface TripServiceRest {
-
+	
 	@GET
-	@Path("/getMyTrips")
+	@Path("/login{name}/{password}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Trip> getTrips() throws EntityNotFoundException;
+	User login(@PathParam(value = "name") String name,@PathParam(value = "password") String password ) throws EntityNotFoundException;
+	
 
 	@GET
-	@Path("/involvedUsers{idTrip}")
+	@Path("/getMyTrips{idUser}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	List<Trip> getTrips(@PathParam(value = "idUser") Long idTrip);
+	
+	@GET
+	@Path("/involvedUsers{idTrip}id{promoter}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	List<Trip> getUserInvolvedInTrip(@PathParam(value = "idTrip") Long idTrip)
 			throws EntityNotFoundException;
