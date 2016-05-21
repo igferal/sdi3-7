@@ -83,4 +83,10 @@ public class RatingDaoJdbcImpl implements RatingDao {
 				new RatingMapper(), userId);
 	}
 
+	@Override
+	public List<Rating> findLastMonthDone() {
+		return jdbcTemplate.queryForList("RATING_FIND_LAST_MONTH_DONE",
+				new RatingMapper());
+	}
+
 }

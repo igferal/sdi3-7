@@ -11,4 +11,6 @@ public interface RatingDao extends GenericDao<Rating, Long> {
 			Long fromTripId);
 
 	List<Rating> findByUserId(Long userId);
+
+	List<Rating> findLastMonthDone();
 }

@@ -5,6 +5,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import com.sdi.business.ApplicationService;
+import com.sdi.business.RatingService;
 import com.sdi.business.SeatService;
 import com.sdi.business.ServicesFactory;
 import com.sdi.business.TripService;
@@ -18,6 +19,13 @@ public class LocalEjbServicesLocator implements ServicesFactory {
 			+ "sdi3-7.EJB/"
 			+ "EjbApplicationService!"
 			+ "com.sdi.business.impl.LocalApplicationService";
+	
+	private static final String RATING_SERVICE_JNDI_KEY =
+			"java:global/"
+			+ "sdi3-7/"
+			+ "sdi3-7.EJB/"
+			+ "EjbRatingService!"
+			+ "com.sdi.business.impl.LocalRatingService";
 	
 	private static final String SEAT_SERVICE_JNDI_KEY =
 			"java:global/"
@@ -45,6 +53,16 @@ public class LocalEjbServicesLocator implements ServicesFactory {
 		try {
 			Context ctx = new InitialContext();
 			return (ApplicationService) ctx.lookup(APPLICATION_SERVICE_JNDI_KEY);
+		} catch (NamingException e) {
+			throw new RuntimeException("JNDI problem", e);
+		}
+	}
+	
+	@Override
+	public RatingService getRatingService() {
+		try {
+			Context ctx = new InitialContext();
+			return (RatingService) ctx.lookup(RATING_SERVICE_JNDI_KEY);
 		} catch (NamingException e) {
 			throw new RuntimeException("JNDI problem", e);
 		}

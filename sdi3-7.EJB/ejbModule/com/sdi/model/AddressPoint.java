@@ -79,6 +79,10 @@ public class AddressPoint implements Serializable {
 		return waypoint;
 	}
 
+	public String escapeToConsole() {
+		return city + " - " + state + " - " + country + " " + zipCode;
+	}
+	
 	@Override
 	public String toString() {
 		return "Destination [address=" + address + ", city=" + city 
