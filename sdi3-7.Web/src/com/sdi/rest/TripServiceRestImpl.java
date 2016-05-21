@@ -16,28 +16,28 @@ public class TripServiceRestImpl implements TripServiceRest {
 
 		TripService tservice = Factories.services.getTripService();
 
-		return tservice.currentTravelsPromoter(310L, new Date());
+		return tservice.currentTravelsPromoter(id, new Date());
 	}
 
 	@Override
-	public List<Trip> getUserInvolvedInTrip(Long idTrip)
+	public void confirmPassenger(Long idUser, Long idTrip)
 			throws EntityNotFoundException {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean confirmPassenger(Long idUser, Long idTrip)
-			throws EntityNotFoundException {
-		// TODO Auto-generated method stub
-		return false;
+		Factories.services.getSeatService().moveToAccepted(idUser, idTrip);
 	}
 
 	@Override
 	public User login(String name, String password)
 			throws EntityNotFoundException {
-		
+
 		User user = Factories.services.getUserService().verify(name, password);
 		return user;
+	}
+
+	@Override
+	public List<User> getUserInvolvedInTrip(Long idTrip, Long idPromoter)
+			throws EntityNotFoundException {
+		return Factories.services.getTripService().pendingUsers(idTrip,
+				idPromoter);
 	}
 }
