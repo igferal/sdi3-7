@@ -39,7 +39,7 @@ public interface TripServiceRest {
 	@PUT
 	@Path("/confirmUser{idUser}/InTrip{idTrip}")
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	void confirmPassenger(@PathParam(value = "id") Long idUser, 
+	void confirmPassenger(@PathParam(value = "idUser") Long idUser, 
 		@PathParam(value = "idTrip") Long idTrip) throws EntityNotFoundException;
 ;
 
