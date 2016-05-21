@@ -163,29 +163,24 @@ public class TripDaoJdbcImpl implements TripDao {
 
 	@Override
 	public List<Trip> dateAscendingPromoter(Long idProm) {
-		// TODO Auto-generated method stub
 		return jdbcTemplate.queryForList("TRIP_DATE_ASC_PROM",
 				new TripMapper(), idProm);
 	}
 
 	@Override
 	public List<Trip> dateDescendingPromoter(Long idProm) {
-		// TODO Auto-generated method stub
 		return jdbcTemplate.queryForList("TRIP_DATE_DESC_PROM",
 				new TripMapper(), idProm);
 	}
 
 	@Override
 	public List<Trip> destinoDescendingPromoter(Long idProm) {
-		// TODO Auto-generated method stub
-
 		return jdbcTemplate.queryForList("TRIP_DEST_DESC_PROM",
 				new TripMapper(), idProm);
 	}
 
 	@Override
 	public List<Trip> destinoAscendingPromoter(Long idProm) {
-		// TODO Auto-generated method stub
 		return jdbcTemplate.queryForList("TRIP_DEST_ASC_PROM",
 				new TripMapper(), idProm);
 	}
@@ -204,9 +199,14 @@ public class TripDaoJdbcImpl implements TripDao {
 
 	@Override
 	public List<Trip> findTripsPromotedCurrently(Long id, Date date) {
-		// TODO Auto-generated method stub
 		return jdbcTemplate.queryForList("TRIP_FIND_BY_PROMOTER_CURRENT",
 				new TripMapper(), id, date);
+	}
+	
+	@Override
+	public List<Trip> findTripsTakePartOf(Long id) {
+		return jdbcTemplate.queryForList("TRIP_FIND_TAKE_PART_OF",
+				new TripMapper(), id);
 	}
 
 }

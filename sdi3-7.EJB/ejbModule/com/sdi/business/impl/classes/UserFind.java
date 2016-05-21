@@ -14,5 +14,9 @@ public class UserFind {
 	public List<User> findAll() {
 		return Factories.persistence.newUserDao().findAll();
 	}
+
+	public User findById(Long id) {
+		return Factories.persistence.newUserDao().findById(id);
+	}
 	
 }

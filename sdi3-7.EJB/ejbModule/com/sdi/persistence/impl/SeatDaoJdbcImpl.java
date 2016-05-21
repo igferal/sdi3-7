@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.sdi.persistence.SeatDao;
-
 import com.sdi.model.Seat;
 import com.sdi.model.SeatStatus;
 import com.sdi.persistence.util.JdbcTemplate;
@@ -85,4 +84,8 @@ public class SeatDaoJdbcImpl implements SeatDao {
 		return jdbcTemplate.queryForList("SEAT_FIND_BY_TRIP", new SeatMapper(), idTrip);
 	}
 
+	@Override
+	public List<Seat> findByUserAndNotExcluded(Long id) {
+		return jdbcTemplate.queryForList("SEAT_FIND_BY_USER_NOT_EXCLUDED", new SeatMapper(), id);
+	}
 }

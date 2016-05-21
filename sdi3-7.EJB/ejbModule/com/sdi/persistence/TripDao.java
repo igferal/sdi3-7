@@ -35,8 +35,8 @@ public interface TripDao extends GenericDao<Trip, Long> {
 	
 	List<Trip> findTripsByUserIdNotPromoter(Long id);
 	
-	List<Trip> findTripsPromotedCurrently(Long id,Date date);
+	List<Trip> findTripsPromotedCurrently(Long id, Date date);
 
+	List<Trip> findTripsTakePartOf(Long id);
 	
-
 }

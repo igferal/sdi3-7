@@ -50,8 +50,12 @@ public class EjbTripService implements LocalTripService, RemoteTripService {
 
 	@Override
 	public List<Trip> currentTravelsPromoter(Long id, Date date) {
-		// TODO Auto-generated method stub
 		return new ListCurrentPromoterTrips(id,date).listTrips();
+	}
+	
+	@Override
+	public List<Trip> tripsTakePartOf(Long id) {
+		return new TripFind().findTakePartOf(id);
 	}
 	
 }

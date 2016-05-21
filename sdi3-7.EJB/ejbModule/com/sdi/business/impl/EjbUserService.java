@@ -7,6 +7,7 @@ import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.UserFind;
 import com.sdi.business.impl.classes.UserSave;
+import com.sdi.business.impl.classes.UserUpdate;
 import com.sdi.model.User;
 
 @Stateless
@@ -32,6 +33,16 @@ public class EjbUserService implements LocalUserService, RemoteUserService {
 	@Override
 	public List<User> findAll() {
 		return new UserFind().findAll();
+	}
+
+	@Override
+	public User findById(Long id) {
+		return new UserFind().findById(id);
+	}
+
+	@Override
+	public void updateUser(User user) {
+		new UserUpdate().update(user);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.sdi.business.impl;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
@@ -31,6 +33,16 @@ public class EjbSeatService implements LocalSeatService, RemoteSeatService {
 	@Override
 	public Seat find(Long[] id) {
 		return new SeatFind(id).find();	
+	}
+
+	@Override
+	public List<Seat> findByUserAndNotExcludedAndOpenTrip(Long id) {
+		return new SeatFind().findByUserAndNotExcluded(id);
+	}
+
+	@Override
+	public void moveSeatToExcluded(Seat seat) {
+		new SeatMoveToExcluded().exclude(seat);
 	}
 
 }

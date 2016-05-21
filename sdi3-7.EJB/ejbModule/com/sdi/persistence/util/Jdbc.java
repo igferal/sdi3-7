@@ -82,12 +82,14 @@ public class Jdbc {
 	}
 
 	public static void close(ResultSet rs, PreparedStatement ps, Connection con) {
-		jdbc.close(ps, rs, con);
+		close(rs);
+		close(ps);
+		close(con);
 	}
 
 	public static void close(PreparedStatement ps, Connection con) {
-		close( ps );
-		close( con );
+		close(ps);
+		close(con);
 	}
 
 	static void close(ResultSet rs) {

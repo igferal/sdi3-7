@@ -14,4 +14,5 @@ public interface TripService {
 	List<Trip> currentTravelsPromoter(Long id,Date date);
 	void update(Trip trip);
 	void updateTripsStatusTask();
+	List<Trip> tripsTakePartOf(Long id);
 }

@@ -11,6 +11,18 @@ import com.sdi.model.Trip;
 import com.sdi.persistence.SeatDao;
 
 public class SeatMoveToExcluded {
+	
+	public void exclude(Seat seat) {
+		SeatDao seatDao = Factories.persistence.newSeatDao();
+		
+		if (seat.getStatus().equals(SeatStatus.ACCEPTED)) {
+			seat.setStatus(SeatStatus.EXCLUDED);
+			seatDao.update(seat);
+			Log.info(
+					"Seat Excluded para el usuario [%s] en el viaje [%s] (desde Accepted)",
+					seat.getUserId(), seat.getTripId());
+		}
+	}
 
 	public void exclude(Long idUser, Long idTrip) {
 		Trip trip = Factories.services.getTripService().findTrip(idTrip);
