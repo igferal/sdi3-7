@@ -11,6 +11,7 @@ public interface TripService {
 	void saveTrip(Trip trip);
 	List<Trip> listActiveTrips(Date date);
 	List<Trip> travelsPromoter(Long id);
+	List<Trip> currentTravelsPromoter(Long id,Date date);
 	void update(Trip trip);
 	void updateTripsStatusTask();
 }

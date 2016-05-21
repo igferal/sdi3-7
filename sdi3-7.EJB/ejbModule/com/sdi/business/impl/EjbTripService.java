@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.ListActiveTrip;
+import com.sdi.business.impl.classes.ListCurrentPromoterTrips;
 import com.sdi.business.impl.classes.ListPromoterTrips;
 import com.sdi.business.impl.classes.TripFind;
 import com.sdi.business.impl.classes.TripSave;
@@ -45,6 +46,12 @@ public class EjbTripService implements LocalTripService, RemoteTripService {
 	@Override
 	public void updateTripsStatusTask() {
 		new TripsUpdateStatusTask();
+	}
+
+	@Override
+	public List<Trip> currentTravelsPromoter(Long id, Date date) {
+		// TODO Auto-generated method stub
+		return new ListCurrentPromoterTrips(id,date).listTrips();
 	}
 	
 }

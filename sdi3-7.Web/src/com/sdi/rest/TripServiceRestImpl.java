@@ -10,14 +10,12 @@ import com.sdi.model.Trip;
 
 public class TripServiceRestImpl implements TripServiceRest {
 
-	
 	@Override
 	public List<Trip> getTrips() {
-		
+
 		TripService tservice = Factories.services.getTripService();
 
-		
-		return tservice.listActiveTrips(new Date());
+		return tservice.currentTravelsPromoter(310L, new Date());
 	}
 
 	@Override
@@ -33,7 +31,5 @@ public class TripServiceRestImpl implements TripServiceRest {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 }
