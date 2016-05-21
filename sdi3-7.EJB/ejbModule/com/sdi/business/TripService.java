@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.sdi.model.Trip;
+import com.sdi.model.User;
 
 public interface TripService {
 	
@@ -15,4 +16,5 @@ public interface TripService {
 	void update(Trip trip);
 	void updateTripsStatusTask();
 	List<Trip> tripsTakePartOf(Long id);
+	List<User> pendingUsers(Long idpromoter, Long id_trip);
 }

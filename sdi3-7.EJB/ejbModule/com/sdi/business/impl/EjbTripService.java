@@ -13,7 +13,9 @@ import com.sdi.business.impl.classes.TripFind;
 import com.sdi.business.impl.classes.TripSave;
 import com.sdi.business.impl.classes.TripUpdate;
 import com.sdi.business.impl.classes.TripsUpdateStatusTask;
+import com.sdi.business.impl.classes.pendingUsers;
 import com.sdi.model.Trip;
+import com.sdi.model.User;
 
 @Stateless
 @WebService(name="TripService")
@@ -56,6 +58,12 @@ public class EjbTripService implements LocalTripService, RemoteTripService {
 	@Override
 	public List<Trip> tripsTakePartOf(Long id) {
 		return new TripFind().findTakePartOf(id);
+	}
+
+	@Override
+	public List<User> pendingUsers(Long idpromoter, Long id_trip) {
+		// TODO Auto-generated method stub
+		return new pendingUsers(idpromoter,id_trip).listPending();
 	}
 	
 }

@@ -29,9 +29,9 @@ public interface TripServiceRest {
 	List<Trip> getTrips(@PathParam(value = "idUser") Long idTrip);
 	
 	@GET
-	@Path("/involvedUsers{idTrip}id{promoter}")
+	@Path("/involvedUsers{idTrip}/id{promoter}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Trip> getUserInvolvedInTrip(@PathParam(value = "idTrip") Long idTrip)
+	List<User> getUserInvolvedInTrip(@PathParam(value = "idTrip") Long idTrip,@PathParam(value = "promoter") Long idPromoter)
 			throws EntityNotFoundException;
 
 	
