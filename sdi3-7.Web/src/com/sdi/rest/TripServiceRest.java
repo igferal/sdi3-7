@@ -18,7 +18,7 @@ import com.sdi.model.User;
 public interface TripServiceRest {
 	
 	@GET
-	@Path("/login{name}{password}")
+	@Path("/login{name}/{password}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	User login(@PathParam(value = "name") String name,@PathParam(value = "name") String password ) throws EntityNotFoundException;
 	

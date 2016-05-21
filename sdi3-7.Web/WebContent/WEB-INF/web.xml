@@ -26,6 +26,12 @@
 		<param-value>bootstrap</param-value>
 	</context-param>
 
+<login-config>
+<auth-method>BASIC</auth-method>
+<realm-name>ApplicationRealm</realm-name>
+</login-config>
+
+
 <context-param>
  <param-name>resteasy.servlet.mapping.prefix</param-name>
  <param-value>/rest</param-value>
