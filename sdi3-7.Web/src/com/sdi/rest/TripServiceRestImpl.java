@@ -1,6 +1,8 @@
 package com.sdi.rest;
 
+import java.util.Date;
 import java.util.List;
+
 import com.sdi.business.TripService;
 import com.sdi.business.exception.EntityNotFoundException;
 import com.sdi.infrastructure.Factories;
@@ -15,7 +17,7 @@ public class TripServiceRestImpl implements TripServiceRest {
 		TripService tservice = Factories.services.getTripService();
 
 		
-		return null;
+		return tservice.listActiveTrips(new Date());
 	}
 
 	@Override
