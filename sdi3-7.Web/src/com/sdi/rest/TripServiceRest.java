@@ -20,14 +20,14 @@ public interface TripServiceRest {
 	@GET
 	@Path("/login{name}/{password}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	User login(@PathParam(value = "name") String name,@PathParam(value = "name") String password ) throws EntityNotFoundException;
+	User login(@PathParam(value = "name") String name,@PathParam(value = "password") String password ) throws EntityNotFoundException;
 	
 
 	@GET
-	@Path("/getMyTrips")
+	@Path("/getMyTrips{idUser}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	List<Trip> getTrips() throws EntityNotFoundException;
-
+	List<Trip> getTrips(@PathParam(value = "idUser") Long idTrip);
+	
 	@GET
 	@Path("/involvedUsers{idTrip}id{promoter}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })

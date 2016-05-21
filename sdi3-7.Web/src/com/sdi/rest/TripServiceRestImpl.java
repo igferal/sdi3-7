@@ -12,7 +12,7 @@ import com.sdi.model.User;
 public class TripServiceRestImpl implements TripServiceRest {
 
 	@Override
-	public List<Trip> getTrips() {
+	public List<Trip> getTrips(Long id) {
 
 		TripService tservice = Factories.services.getTripService();
 
