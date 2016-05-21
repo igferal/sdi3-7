@@ -3,10 +3,9 @@ package com.sdi.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.sun.xml.internal.txw2.annotation.XmlElement;
 
 /**
  * This class is not an entity, it is a DTO with the same fields as a row in the
@@ -44,7 +43,8 @@ public class Trip implements Serializable {
 	public void setDeparture(AddressPoint departure) {
 		this.departure = departure;
 	}
-
+	
+	@XmlElement
 	public TripStatus getStatus() {
 		return status;
 	}

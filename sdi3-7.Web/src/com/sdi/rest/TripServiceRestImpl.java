@@ -7,6 +7,7 @@ import com.sdi.business.TripService;
 import com.sdi.business.exception.EntityNotFoundException;
 import com.sdi.infrastructure.Factories;
 import com.sdi.model.Trip;
+import com.sdi.model.User;
 
 public class TripServiceRestImpl implements TripServiceRest {
 
@@ -32,4 +33,11 @@ public class TripServiceRestImpl implements TripServiceRest {
 		return false;
 	}
 
+	@Override
+	public User login(String name, String password)
+			throws EntityNotFoundException {
+		
+		User user = Factories.services.getUserService().verify(name, password);
+		return user;
+	}
 }
