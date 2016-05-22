@@ -41,6 +41,17 @@ public interface TripServiceRest {
 	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 	void confirmPassenger(@PathParam(value = "idUser") Long idUser, 
 		@PathParam(value = "idTrip") Long idTrip) throws EntityNotFoundException;
+	
+	@GET
+	@Path("/travelsPromoter{idPromoter}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	List<Trip> getPromoterTrips(@PathParam(value="idPromoter") Long idPromoter);
+	
+	@GET
+	@Path("/travelsAccepted{idPromoter}")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	List<Trip> getTripsAccepted(@PathParam(value="idPromoter") Long idPromoter);
+	
 ;
 
 }
