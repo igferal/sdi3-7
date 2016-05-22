@@ -1,6 +1,5 @@
 package client;
 
-
 import java.util.List;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
@@ -23,7 +22,7 @@ public class Main extends BaseMenu {
 		new Main().execute();
 	}
 
-	private  Main() {
+	private Main() {
 		client = new ResteasyClientBuilder().build()
 				.register(new Authenticator("sdi", "password"))
 				.target(REST_SERVICE_URL).proxy(ShareMyTripsRestService.class);
@@ -31,9 +30,10 @@ public class Main extends BaseMenu {
 		while (login() == false)
 			;
 
-		menuOptions = new Object[][] { { "Listar viajes ofrecidos en vigor",
-				ListarViajesAction.class }, { "Confirmar usuarios en un viaje",
-ConfirmPassengerAction.class }
+		menuOptions = new Object[][] {
+				{ "Listar viajes ofrecidos en vigor", ListarViajesAction.class },
+				{ "Confirmar usuarios en un viaje",
+						ConfirmPassengerAction.class }
 
 		};
 
@@ -49,6 +49,5 @@ ConfirmPassengerAction.class }
 		}
 		return true;
 	}
-
 
 }
