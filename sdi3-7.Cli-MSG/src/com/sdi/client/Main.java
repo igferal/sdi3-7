@@ -4,11 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
+import javax.jms.Topic;
+import javax.jms.TopicConnection;
+import javax.jms.TopicConnectionFactory;
 
 import alb.util.console.Console;
 
 import com.sdi.business.TripService;
+import com.sdi.client.util.Jndi;
 import com.sdi.infrastructure.Factories;
 import com.sdi.model.Trip;
 import com.sdi.model.User;
@@ -20,15 +25,39 @@ public class Main {
 
 	private User user;
 	private Long idTrip;
+	private PublisherAndSubscriber ps;
 
-	public static void main(String[] args) throws JMSException {
+	public static void main(String[] args) throws Exception {
 		new Main().run();
 	}
 
-	private void run() throws JMSException {
+	private void run() throws Exception {
 		login();
 		listTrips();
 		selectTrip();
+		
+		TopicConnectionFactory factory =
+				(TopicConnectionFactory) Jndi.find( JMS_CONNECTION_FACTORY );
+		
+		Topic topic = (Topic) Jndi.find(SDI3_7_TOPIC);
+		TopicConnection con = factory.createTopicConnection("sdi", "password");
+		
+//		List<Seat> seats = Factories.services.getSeatService().findAcceptedByTrip(id);
+		
+		ps = new PublisherAndSubscriber(con, topic, user);
+		
+		con.start();
+		
+		ask();
+	
+		
+	}
+
+	private void ask() throws JMSException {
+		while (true) {
+			String msg = Console.readString("Mensaje a enviar");
+			ps.sendMessage(msg);
+		}
 	}
 
 	private void login() {
