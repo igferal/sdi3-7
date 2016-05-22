@@ -88,4 +88,10 @@ public class SeatDaoJdbcImpl implements SeatDao {
 	public List<Seat> findByUserAndNotExcluded(Long id) {
 		return jdbcTemplate.queryForList("SEAT_FIND_BY_USER_NOT_EXCLUDED", new SeatMapper(), id);
 	}
+
+	@Override
+	public List<Seat> findAcceptedByTrip(Long id) {
+		// TODO Auto-generated method stub
+		return jdbcTemplate.queryForList("SEAT_FIND_ACCEPTED_BY_TRIP", new SeatMapper(), id);
+	}
 }

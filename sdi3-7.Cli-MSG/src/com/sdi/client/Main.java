@@ -3,12 +3,17 @@ package com.sdi.client;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
+<<<<<<< HEAD
 import javax.jms.Topic;
 import javax.jms.TopicConnection;
 import javax.jms.TopicConnectionFactory;
+=======
+import javax.naming.Context;
+>>>>>>> cea93e78a25fc343bb1a22f533bc694d4a3267a5
 
 import alb.util.console.Console;
 
@@ -59,6 +64,8 @@ public class Main {
 			ps.sendMessage(msg);
 		}
 	}
+
+
 
 	private void login() {
 		String userName = Console.readString("Usuario");

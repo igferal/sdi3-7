@@ -12,4 +12,5 @@ public interface SeatService {
 	Seat find(Long[] id);
 	List<Seat> findByUserAndNotExcludedAndOpenTrip(Long id);
 	void moveSeatToExcluded(Seat seat);
+	List<Seat> findAcceptedByTrip(Long id);
 }
