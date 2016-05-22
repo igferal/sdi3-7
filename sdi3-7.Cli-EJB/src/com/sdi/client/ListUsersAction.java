@@ -14,7 +14,7 @@ public class ListUsersAction implements Action {
 	@Override
 	public void execute() throws Exception {
 		ServicesFactory services = Factories.services;
-		List<User> users = services.getUserService().findAll();
+		List<User> users = services.getUserService().findAllUsers();
 		System.out.printf("%s %s %s %s %s %s %s %s\n",
 				"_IDUSER_",
 				"_LOGIN_________",

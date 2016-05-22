@@ -11,7 +11,7 @@ import com.sdi.business.impl.classes.UserUpdate;
 import com.sdi.model.User;
 
 @Stateless
-@WebService(name="UserService")
+@WebService(name = "UserService")
 public class EjbUserService implements LocalUserService, RemoteUserService {
 
 	@Override
@@ -21,7 +21,7 @@ public class EjbUserService implements LocalUserService, RemoteUserService {
 			user.setPassword(null);
 			return user;
 		}
-		
+
 		return null;
 	}
 
@@ -31,7 +31,7 @@ public class EjbUserService implements LocalUserService, RemoteUserService {
 	}
 
 	@Override
-	public List<User> findAll() {
+	public List<User> findAllUsers() {
 		return new UserFind().findAll();
 	}
 
