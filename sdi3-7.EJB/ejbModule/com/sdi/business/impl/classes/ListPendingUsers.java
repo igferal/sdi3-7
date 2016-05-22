@@ -7,14 +7,13 @@ import com.sdi.infrastructure.Factories;
 import com.sdi.model.Application;
 import com.sdi.model.User;
 
-public class PendingUsers {
+public class ListPendingUsers {
 
 	private Long idPromotor;
 
 	private Long idTrip;
 
-	public PendingUsers(Long idPromotor, Long idTrip) {
-		super();
+	public ListPendingUsers(Long idPromotor, Long idTrip) {
 		this.idPromotor = idPromotor;
 		this.idTrip = idTrip;
 	}

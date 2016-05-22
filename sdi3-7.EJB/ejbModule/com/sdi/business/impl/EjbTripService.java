@@ -8,12 +8,12 @@ import javax.jws.WebService;
 
 import com.sdi.business.impl.classes.ListActiveTrip;
 import com.sdi.business.impl.classes.ListCurrentPromoterTrips;
+import com.sdi.business.impl.classes.ListPendingUsers;
 import com.sdi.business.impl.classes.ListPromoterTrips;
 import com.sdi.business.impl.classes.TripFind;
 import com.sdi.business.impl.classes.TripSave;
 import com.sdi.business.impl.classes.TripUpdate;
 import com.sdi.business.impl.classes.TripsUpdateStatusTask;
-import com.sdi.business.impl.classes.PendingUsers;
 import com.sdi.model.Trip;
 import com.sdi.model.User;
 
@@ -63,7 +63,7 @@ public class EjbTripService implements LocalTripService, RemoteTripService {
 	@Override
 	public List<User> pendingUsers(Long idpromoter, Long id_trip) {
 		// TODO Auto-generated method stub
-		return new PendingUsers(id_trip,idpromoter).listPending();
+		return new ListPendingUsers(id_trip,idpromoter).listPending();
 	}
 	
 }
