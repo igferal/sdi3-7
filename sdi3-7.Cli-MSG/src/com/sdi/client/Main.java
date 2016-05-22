@@ -3,8 +3,10 @@ package com.sdi.client;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.jms.JMSException;
+import javax.naming.Context;
 
 import alb.util.console.Console;
 
@@ -30,6 +32,8 @@ public class Main {
 		listTrips();
 		selectTrip();
 	}
+
+
 
 	private void login() {
 		String userName = Console.readString("Usuario");

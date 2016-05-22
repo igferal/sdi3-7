@@ -9,6 +9,7 @@ import com.sdi.business.impl.classes.SeatFind;
 import com.sdi.business.impl.classes.SeatMoveToAccepted;
 import com.sdi.business.impl.classes.SeatMoveToExcluded;
 import com.sdi.business.impl.classes.SeatMoveToPending;
+import com.sdi.business.impl.classes.findAcceptedByTrip;
 import com.sdi.model.Seat;
 
 @Stateless
@@ -43,6 +44,12 @@ public class EjbSeatService implements LocalSeatService, RemoteSeatService {
 	@Override
 	public void moveSeatToExcluded(Seat seat) {
 		new SeatMoveToExcluded().exclude(seat);
+	}
+
+	@Override
+	public List<Seat> findAcceptedByTrip(Long id) {
+		// TODO Auto-generated method stub
+		return new findAcceptedByTrip(id).listAcceptedByTrip();
 	}
 
 }
