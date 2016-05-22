@@ -20,9 +20,13 @@ public class ConfirmPassengerAction implements Action {
 		while (!isTrip(selectedTrip)) {
 			selectedTrip = Console
 					.readLong("Escoja el viaje para el que quiere confirmar"
-							+ " usuarios \nmediante su ID");
+							+ " usuarios mediante su ID");
 		}
-		showUsers(selectedTrip);
+
+		boolean hasUsers = showUsers(selectedTrip);
+
+		if (!hasUsers)
+			return;
 
 		long selectedUser = -1L;
 		while (!isUserPendings(selectedUser)) {
@@ -46,15 +50,27 @@ public class ConfirmPassengerAction implements Action {
 
 	}
 
-	private void showUsers(Long idTrip) {
+	private boolean showUsers(Long idTrip) {
 
 		usersToConfirm = Main.client.getUserInvolvedInTrip(idTrip,
 				Main.user.getId());
 
-		for (User user : usersToConfirm) {
-			System.out.println(user.toString());
+		if (usersToConfirm.isEmpty()) {
+			Console.println("No tiene peticiones para este viaje");
+			return false;
 		}
 
+		for (User user : usersToConfirm) {
+			printUser(user);
+		}
+
+		return true;
+	}
+
+	private void printUser(User user) {
+
+		Console.println("ID:" + user.getId() + " " + user.getName() + ", "
+				+ user.getSurname() + "  email: " + user.getEmail());
 	}
 
 	private boolean isTrip(Long id) {

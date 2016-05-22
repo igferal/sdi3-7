@@ -16,8 +16,19 @@ public class ListarViajesAction implements Action {
 			Main.trips = Main.client.getTrips(Main.user.getId());
 		}
 		for (Trip trip : Main.trips) {
-			Console.println(trip);
+			printTrip(trip);
 		}
+
+	}
+
+	private void printTrip(Trip trip) {
+
+		Console.println("ID: " + trip.getId() + " "
+				+ trip.getDestination().getCity() + " ("
+				+ trip.getDeparture().getCountry() + ") - "
+				+ trip.getDeparture().getCity() + " ("
+				+ trip.getDestination().getCountry() + ")" +  "hora salida: "
+				+ trip.getDepartureDate());
 
 	}
 

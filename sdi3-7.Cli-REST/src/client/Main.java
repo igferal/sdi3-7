@@ -47,7 +47,6 @@ ConfirmPassengerAction.class }
 			Console.println("Usuario invalido, introduzca uno correcto");
 			return false;
 		}
-		System.out.println(user.toString());
 		return true;
 	}
 
