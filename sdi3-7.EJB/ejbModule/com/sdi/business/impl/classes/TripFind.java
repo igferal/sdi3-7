@@ -15,4 +15,8 @@ public class TripFind {
 		return Factories.persistence.newTripDao().findTripsTakePartOf(id);
 	}
 
+	public List<Trip> findAcceptedUser(Long id) {
+		return Factories.persistence.newTripDao().findAcceptedUser(id);
+	}
+
 }

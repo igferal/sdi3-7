@@ -62,8 +62,12 @@ public class EjbTripService implements LocalTripService, RemoteTripService {
 
 	@Override
 	public List<User> pendingUsers(Long idpromoter, Long id_trip) {
-		// TODO Auto-generated method stub
 		return new ListPendingUsers(id_trip,idpromoter).listPending();
+	}
+
+	@Override
+	public List<Trip> tripsAccepted(Long id) {
+		return new TripFind().findAcceptedUser(id);
 	}
 	
 }

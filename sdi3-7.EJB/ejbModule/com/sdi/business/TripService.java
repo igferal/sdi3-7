@@ -17,4 +17,5 @@ public interface TripService {
 	void updateTripsStatusTask();
 	List<Trip> tripsTakePartOf(Long id);
 	List<User> pendingUsers(Long idpromoter, Long id_trip);
+	List<Trip> tripsAccepted(Long id);
 }

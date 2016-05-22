@@ -22,8 +22,8 @@ public class ListUsersAction implements Action {
 				"_APELLIDOS_______________",
 				"_EMAIL___________________",
 				"_ESTADO________",
-				"_NUM VIAJES PROMOVIDOS___",
-				"_NUM VIAJES PARTICIPANDO_");
+				"_NUM_VIAJES_PROMOVIDOS___",
+				"_NUM_VIAJES_HA_PARTICIPADO_");
 		
 		int promotedTravels = 0;
 		int participatedTravels = 0;

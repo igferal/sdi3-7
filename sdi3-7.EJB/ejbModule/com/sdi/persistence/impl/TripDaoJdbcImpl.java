@@ -209,4 +209,10 @@ public class TripDaoJdbcImpl implements TripDao {
 				new TripMapper(), id);
 	}
 
+	@Override
+	public List<Trip> findAcceptedUser(Long id) {
+		return jdbcTemplate.queryForList("TRIP_FIND_ACCEPTED_USER",
+				new TripMapper(), id);
+	}
+
 }
