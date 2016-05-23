@@ -152,7 +152,4 @@ public class Trip implements Serializable {
 				+ promoterId + "]";
 	}
 
-	
-
-
 }
