@@ -33,7 +33,7 @@ public partial class EjbApplicationServiceService : System.Web.Services.Protocol
     
     /// <remarks/>
     public EjbApplicationServiceService() {
-        this.Url = "http://DESKTOP-74U6TKG:8280/sdi3-7.EJB/ApplicationService";
+        this.Url = "http://localhost:8280/sdi3-7.EJB/ApplicationService";
     }
     
     /// <remarks/>

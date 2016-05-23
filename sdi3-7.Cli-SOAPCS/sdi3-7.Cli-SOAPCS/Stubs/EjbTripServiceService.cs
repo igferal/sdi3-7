@@ -49,7 +49,7 @@ public partial class EjbTripServiceService : System.Web.Services.Protocols.SoapH
     
     /// <remarks/>
     public EjbTripServiceService() {
-        this.Url = "http://DESKTOP-74U6TKG:8280/sdi3-7.EJB/TripService";
+        this.Url = "http://localhost:8280/sdi3-7.EJB/TripService";
     }
     
     /// <remarks/>
