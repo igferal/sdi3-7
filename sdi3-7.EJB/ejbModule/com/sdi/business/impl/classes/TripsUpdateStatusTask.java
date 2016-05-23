@@ -34,7 +34,6 @@ public class TripsUpdateStatusTask {
 
 	@Timeout
 	public void execute(Timer timer) {
-		System.out.println("Funciona timer");
 		TripDao dao = Factories.persistence.newTripDao();
 		List<Trip> trips = dao.findTravelsOpenAndClosed();
 		Date today = DateUtil.today();
