@@ -19,7 +19,7 @@ namespace sdi3_7.CliRESTSHARP
         static void Main(string[] args)
         {
 
-            var client = new RestClient("http://localhost:8280/sdi3-7.Web/rest/TripServiceRs");
+            var client = new RestClient("http://localhost:8280/sdi3-7.Web/sdi3-7Rest/TripServiceRs");
             client.Authenticator = new HttpBasicAuthenticator("sdi", "password");
             while(!login(client));
             showTrips(client);

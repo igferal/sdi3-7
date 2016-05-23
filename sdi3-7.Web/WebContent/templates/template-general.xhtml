@@ -33,14 +33,18 @@
             </p:selectOneMenu>
 			<p:menubar id="mimenu">
 				<p:menuitem id="shareMyTrip" value="#{msgs.appName}" url="/" />
+				
 				<p:menuitem id="viajesActivos" value="#{msgs.viajesActivos}"
 					action="#{activeTrips.load}" />
+					
 				<p:menuitem id="misViajesOfertados"
 					value="#{msgs.misViajesOfertados}" action="#{myTrips.load}"
 					rendered="#{not empty LOGGEDIN_USER}" />
+					
 				<p:menuitem id="misViajesImplicados"
 					value="#{msgs.misViajesImplicados}" action="#{involvedTrips.load}"
 					rendered="#{not empty LOGGEDIN_USER}" ajax="false" />
+					
 				<p:menuitem id="crearViaje" value="#{msgs.crearViaje}"
 					url="/restricted/createTrip.xhtml" rendered="#{not empty LOGGEDIN_USER}" />
 

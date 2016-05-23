@@ -13,7 +13,7 @@ import alb.util.menu.BaseMenu;
 
 public class Main extends BaseMenu {
 
-	private static final String REST_SERVICE_URL = "http://localhost:8280/sdi3-7.Web/rest/";
+	private static final String REST_SERVICE_URL = "http://localhost:8280/sdi3-7.Web/sdi3-7Rest/";
 	public static ShareMyTripsRestService client;
 	public static User user;
 	public static List<Trip> trips;

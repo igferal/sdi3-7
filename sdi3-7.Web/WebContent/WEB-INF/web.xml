@@ -19,6 +19,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Faces Servlet</servlet-name>
+		 <url-pattern>*/restricted/*</url-pattern>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
 	<context-param>
@@ -33,7 +34,7 @@
 
 <context-param>
  <param-name>resteasy.servlet.mapping.prefix</param-name>
- <param-value>/rest</param-value>
+ <param-value>/sdi3-7Rest</param-value>
  </context-param>
  <!--
  Servlet resteasy que se encarga de procesar las peticiones
@@ -46,16 +47,16 @@
  <servlet-class>
 org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
  </servlet-class>
- <init-param>
- <param-name>javax.ws.rs.Application</param-name>
- <param-value>com.sdi.rest.Application</param-value>
- </init-param>
- <load-on-startup>1</load-on-startup>
+ 	<init-param>
+	 <param-name>javax.ws.rs.Application</param-name>
+	 <param-value>com.sdi.rest.Application</param-value>
+ 	</init-param>
+	 <load-on-startup>1</load-on-startup>
  </servlet>
- <!-- Regla de mapeo para todas las peticiones REST -->
+
  <servlet-mapping>
  <servlet-name>resteasy</servlet-name>
- <url-pattern>/rest/*</url-pattern>
+ <url-pattern>/sdi3-7Rest/*</url-pattern>
  </servlet-mapping>
 
 

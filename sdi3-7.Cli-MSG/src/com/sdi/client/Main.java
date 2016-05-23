@@ -29,7 +29,7 @@ public class Main {
 	private static final String JMS_CONNECTION_FACTORY = "jms/RemoteConnectionFactory";
 	private static final String SDI3_7_TOPIC = "jms/topic/topicsdi3-7";
 	private static final String SDI3_7_QUEUE = "jms/queue/queuesdi3-7";
-	private static final String REST_SERVICE_URL = "http://localhost:8280/sdi3-7.Web/rest/";
+	private static final String REST_SERVICE_URL = "http://localhost:8280/sdi3-7.Web/sdi3-7Rest/";
 
 	private User user;
 	private Long idTrip;
