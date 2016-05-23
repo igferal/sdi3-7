@@ -1,0 +1,10 @@
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\sdi3-7.CliRESTSHARP.exe.config
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\sdi3-7.CliRESTSHARP.exe
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\sdi3-7.CliRESTSHARP.pdb
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\RestSharp.dll
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\bin\Debug\RestSharp.xml
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\obj\Debug\sdi3-7.Cli-RESTSHARP.csprojResolveAssemblyReference.cache
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\obj\Debug\sdi3-7.CliRESTSHARP.exe
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-RESTSHARP\sdi3-7.CliRESTSHARP\obj\Debug\sdi3-7.CliRESTSHARP.pdb

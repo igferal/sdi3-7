@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdi3-7.CliRESTSHARP", "sdi3-7.CliRESTSHARP\sdi3-7.CliRESTSHARP.csproj", "{372A0CD8-7859-45D1-AFD7-8276E25F97CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sdi3-7.Cli-RESTSHARP", "sdi3-7.CliRESTSHARP\sdi3-7.Cli-RESTSHARP.csproj", "{372A0CD8-7859-45D1-AFD7-8276E25F97CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
