@@ -1,0 +1,132 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/templates/template-general.xhtml">
+
+	<ui:define name="cuerpo">
+
+		<p:messages showDetail="true" autoUpdate="true" globalOnly="true"
+			closable="true" />
+
+		<p:panelGrid columnClasses="topAligned, topAligned" columns="2"
+			styleClass="ui-noborder" style="width: 100%">
+			<p:column style="width: 50%">
+
+				<h1>#{msgs.viaje} ID #{tripInfo.tripDto.trip.id}</h1>
+				<h4>
+					<span class="label label-warning">#{tripInfo.tripDto.trip.availablePax}/#{tripInfo.tripDto.trip.maxPax}
+						#{msgs.plazasLibres}</span>
+				</h4>
+
+				<br />
+
+				<p:commandButton id="solicitarPlaza" value="#{msgs.solicitarPlaza}"
+					action="#{tripInfo.solicitarPlaza()}"
+					rendered="#{not empty LOGGEDIN_USER and tripInfo.tripClosed == false and tripInfo.tripDto.isInTrip == false and tripInfo.tripDto.trip.availablePax gt 0}" />
+
+				<h:outputText value=""
+					rendered="#{not empty LOGGEDIN_USER and tripInfo.tripClosed == false and tripInfo.tripDto.isInTrip == false}" />
+
+
+				<h3>#{tripInfo.tripDto.trip.departure.city} -
+					#{tripInfo.tripDto.trip.destination.city}</h3>
+				<h4>
+					<span class="label label-info">#{msgs.fechaLimite}: &#160;
+						#{tripInfo.formattedDate(tripInfo.tripDto.trip.closingDate)} </span>
+				</h4>
+
+				<br />
+
+				<h4>#{msgs.salida}: &#160;
+					#{tripInfo.tripDto.trip.departure.city} &#160;
+					#{tripInfo.formattedDate(tripInfo.tripDto.trip.departureDate)}</h4>
+				<h4>#{msgs.llegada}: &#160;
+					#{tripInfo.tripDto.trip.destination.city} &#160;
+					#{tripInfo.formattedDate(tripInfo.tripDto.trip.arrivalDate)}</h4>
+
+				<br />
+
+				<h4>#{msgs.costeTotal} : #{tripInfo.tripDto.trip.estimatedCost
+					} €</h4>
+
+				<br />
+
+				<p:panel style="display: inline-block">
+					<h:panelGrid>
+						<p:row>
+							<h4>#{msgs.comentariosPromotorViaje}</h4>
+						</p:row>
+						<p:row>#{tripInfo.tripDto.trip.comments}</p:row>
+					</h:panelGrid>
+				</p:panel>
+
+			</p:column>
+
+			<p:column rendered="#{not empty LOGGEDIN_USER}" style="width: 50%">
+				<h1>#{msgs.participantesConfirmados}</h1>
+				<p:panel>
+					<span class="label label-default">#{msgs.promotor}</span>
+					<b>&#160;#{tripInfo.tripDto.promotorLogin}
+						(#{tripInfo.tripDto.promotorName}
+						#{tripInfo.tripDto.promotorSurname})</b>
+				</p:panel>
+				<p:dataList value="#{tripInfo.getAcceptedPassengers()}" var="pas"
+					type="definition"
+					emptyMessage="">
+					<p:panel style="margin-top: 10px">
+						<span class="label label-success">#{msgs.admitido}</span> 
+						&#160;#{pas.login} (#{pas.nombre} #{pas.apellidos})
+				</p:panel>
+				</p:dataList>
+			</p:column>
+		</p:panelGrid>
+
+		<p:panelGrid columnClasses="topAligned, topAligned"
+			styleClass="ui-noborder" style="width: 100%">
+			<p:column>
+				<h3>#{msgs.informacionAdicional}</h3>
+				<p:panelGrid styleClass="ui-noborder" style="width: 100%">
+					<p:column style="width: 50%">
+						<h3>#{msgs.lugarOrigen}:
+							#{tripInfo.tripDto.trip.departure.city}</h3>
+						<br />
+
+						<h4>#{msgs.calle}: #{tripInfo.tripDto.trip.departure.address}</h4>
+						<h4>#{msgs.ciudad}: #{tripInfo.tripDto.trip.departure.city}</h4>
+						<h4>#{msgs.provincia}:
+							#{tripInfo.tripDto.trip.departure.state}</h4>
+						<h4>#{msgs.pais}: #{tripInfo.tripDto.trip.departure.country}</h4>
+						<h4>#{msgs.codigoPostal}:
+							#{tripInfo.tripDto.trip.departure.zipCode}</h4>
+						<h4>#{msgs.coordGPS}:
+							#{tripInfo.tripDto.trip.departure.waypoint.lat} :
+							#{tripInfo.tripDto.trip.departure.waypoint.lon}</h4>
+					</p:column>
+
+					<p:column style="width: 50%">
+						<h3>#{msgs.lugarDestino}:
+							#{tripInfo.tripDto.trip.destination.city}</h3>
+						<br />
+
+						<h4>#{msgs.calle}:
+							#{tripInfo.tripDto.trip.destination.address}</h4>
+						<h4>#{msgs.ciudad}: #{tripInfo.tripDto.trip.destination.city}</h4>
+						<h4>#{msgs.provincia}:
+							#{tripInfo.tripDto.trip.destination.state}</h4>
+						<h4>#{msgs.pais}:
+							#{tripInfo.tripDto.trip.destination.country}</h4>
+						<h4>#{msgs.codigoPostal}:
+							#{tripInfo.tripDto.trip.destination.zipCode}</h4>
+						<h4>#{msgs.coordGPS}:
+							#{tripInfo.tripDto.trip.destination.waypoint.lat} :
+							#{tripInfo.tripDto.trip.destination.waypoint.lon}</h4>
+					</p:column>
+				</p:panelGrid>
+			</p:column>
+		</p:panelGrid>
+
+	</ui:define>
+
+</ui:composition>
