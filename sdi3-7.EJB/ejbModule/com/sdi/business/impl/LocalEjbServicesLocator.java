@@ -14,36 +14,31 @@ import com.sdi.business.UserService;
 public class LocalEjbServicesLocator implements ServicesFactory {
 
 	private static final String APPLICATION_SERVICE_JNDI_KEY =
-			"java:global/"
-			+ "sdi3-7/"
+			"sdi3-7/"
 			+ "sdi3-7.EJB/"
 			+ "EjbApplicationService!"
 			+ "com.sdi.business.impl.LocalApplicationService";
 	
 	private static final String RATING_SERVICE_JNDI_KEY =
-			"java:global/"
-			+ "sdi3-7/"
+			"sdi3-7/"
 			+ "sdi3-7.EJB/"
 			+ "EjbRatingService!"
 			+ "com.sdi.business.impl.LocalRatingService";
 	
 	private static final String SEAT_SERVICE_JNDI_KEY =
-			"java:global/"
-			+ "sdi3-7/"
+			"sdi3-7/"
 			+ "sdi3-7.EJB/"
 			+ "EjbSeatService!"
 			+ "com.sdi.business.impl.LocalSeatService";
 	
 	private static final String TRIP_SERVICE_JNDI_KEY =
-			"java:global/"
-			+ "sdi3-7/"
+			"sdi3-7/"
 			+ "sdi3-7.EJB/"
 			+ "EjbTripService!"
 			+ "com.sdi.business.impl.LocalTripService";
 	
 	private static final String USER_SERVICE_JNDI_KEY =
-			"java:global/"
-			+ "sdi3-7/"
+			"sdi3-7/"
 			+ "sdi3-7.EJB/"
 			+ "EjbUserService!"
 			+ "com.sdi.business.impl.LocalUserService";

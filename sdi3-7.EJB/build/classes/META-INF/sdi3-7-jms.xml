@@ -1,0 +1,11 @@
+<jms-destinations>
+	<jms-queue name="queuesdi3-7">
+		<entry name="jms/queue/queuesdi3-7" />
+		<entry name="java:jboss/exported/jms/queue/queuesdi3-7" />
+		<durable>true</durable>
+	</jms-queue>
+	<jms-topic name="topicsdi3-7">
+		<entry name="jms/topic/topicsdi3-7" />
+		<entry name="java:jboss/exported/jms/topic/topicsdi3-7" />
+	</jms-topic>
+</jms-destinations>
