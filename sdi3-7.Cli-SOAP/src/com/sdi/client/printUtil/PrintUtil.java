@@ -8,9 +8,7 @@ public class PrintUtil {
 	public static String formatAddress(AddressPoint adP){
 		
 		return adP.getCity() + " - " + adP.getState() + " - " + adP.getCountry() +
-				" " + adP.getZipCode();
-
-		
+				" " + adP.getZipCode();		
 	}
 
 }
