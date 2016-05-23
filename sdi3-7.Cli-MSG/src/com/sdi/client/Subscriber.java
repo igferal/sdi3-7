@@ -10,7 +10,9 @@ import javax.jms.TopicConnection;
 import javax.jms.TopicSession;
 import javax.jms.TopicSubscriber;
 
-import com.sdi.model.User;
+import com.sdi.client.model.User;
+
+
 
 public class Subscriber implements MessageListener {
 

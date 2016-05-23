@@ -14,28 +14,37 @@ import javax.jms.Topic;
 import javax.jms.TopicConnection;
 import javax.jms.TopicConnectionFactory;
 
+import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
+
 import alb.util.console.Console;
 
-import com.sdi.business.TripService;
+import com.sdi.client.model.Trip;
+import com.sdi.client.model.User;
+import com.sdi.client.rest.Authenticator;
+import com.sdi.client.rest.ShareMyTripsRestService;
 import com.sdi.client.util.Jndi;
-import com.sdi.infrastructure.Factories;
-import com.sdi.model.Trip;
-import com.sdi.model.User;
 
 public class Main {
 
 	private static final String JMS_CONNECTION_FACTORY = "jms/RemoteConnectionFactory";
 	private static final String SDI3_7_TOPIC = "jms/topic/topicsdi3-7";
 	private static final String SDI3_7_QUEUE = "jms/queue/queuesdi3-7";
+	private static final String REST_SERVICE_URL = "http://localhost:8280/sdi3-7.Web/rest/";
 
 	private User user;
 	private Long idTrip;
+	private ShareMyTripsRestService client;
 
 	public static void main(String[] args) throws Exception {
 		new Main().run();
 	}
 
 	private void run() throws Exception {
+
+		client = new ResteasyClientBuilder().build()
+				.register(new Authenticator("sdi", "password"))
+				.target(REST_SERVICE_URL).proxy(ShareMyTripsRestService.class);
+
 		login();
 		listTrips();
 		selectTrip();
@@ -68,7 +77,7 @@ public class Main {
 		Session session = factory.createConnection("sdi", "password")
 				.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		MessageProducer sender = session.createProducer(queue);
-		
+
 		sender.send(createMessage(msg, session));
 	}
 
@@ -87,21 +96,19 @@ public class Main {
 		String userName = Console.readString("Usuario");
 		String password = Console.readString("Password");
 
-		user = Factories.services.getUserService().verify(userName, password);
+		user = client.login(userName, password);
 
 		while (user == null) {
 			Console.println("Usuario o password incorrectos");
 			userName = Console.readString("Usuario");
 			password = Console.readString("Password");
-			user = Factories.services.getUserService().verify(userName,
-					password);
+			user = client.login(userName, password);
 		}
 	}
 
 	private void listTrips() {
-		TripService tService = Factories.services.getTripService();
-		List<Trip> promoterTrips = tService.travelsPromoter(user.getId());
-		List<Trip> acceptedTrips = tService.tripsAccepted(user.getId());
+		List<Trip> promoterTrips = client.getPromoterTrips(user.getId());
+		List<Trip> acceptedTrips = client.getTripsAccepted(user.getId());
 
 		promoterTrips.addAll(acceptedTrips);
 
@@ -126,12 +133,12 @@ public class Main {
 	private void selectTrip() {
 		idTrip = Console.readLong("IDTRIP a seleccionar");
 
-		Trip trip = Factories.services.getTripService().findTrip(idTrip);
+		Trip trip = client.findTrip(idTrip);
 
 		while (trip == null) {
 			Console.println("El viaje no existe...");
 			idTrip = Console.readLong("IDTRIP a seleccionar");
-			trip = Factories.services.getTripService().findTrip(idTrip);
+			trip = client.findTrip(idTrip);
 		}
 
 	}
