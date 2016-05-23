@@ -33,14 +33,14 @@ public class LoggedFilter implements Filter {
      * Default constructor. 
      */
     public LoggedFilter() {
-        // TODO Auto-generated constructor stub
+       
     }
 
 	/**
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	/**

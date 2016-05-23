@@ -22,7 +22,6 @@ public class TripServiceRestImpl implements TripServiceRest {
 	@Override
 	public void confirmPassenger(Long idUser, Long idTrip)
 			throws EntityNotFoundException {
-		// TODO Auto-generated method stub
 		Factories.services.getSeatService().moveToAccepted(idUser, idTrip);
 	}
 

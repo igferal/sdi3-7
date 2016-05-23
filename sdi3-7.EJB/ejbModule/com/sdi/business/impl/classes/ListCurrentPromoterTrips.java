@@ -20,7 +20,6 @@ public class ListCurrentPromoterTrips {
 	}
 
 	public List<Trip> listTrips() {
-		// TODO Auto-generated method stub
 		return Factories.persistence.newTripDao().findTripsPromotedCurrently(
 				id, date);
 	}

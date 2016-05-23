@@ -91,7 +91,6 @@ public class SeatDaoJdbcImpl implements SeatDao {
 
 	@Override
 	public List<Seat> findAcceptedByTrip(Long id) {
-		// TODO Auto-generated method stub
 		return jdbcTemplate.queryForList("SEAT_FIND_ACCEPTED_BY_TRIP", new SeatMapper(), id);
 	}
 }

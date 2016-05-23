@@ -1,4 +1,4 @@
-package com.sdi.client;
+package com.sdi.client.action;
 
 import java.util.List;
 

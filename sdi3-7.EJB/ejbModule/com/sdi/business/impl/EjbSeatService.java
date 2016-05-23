@@ -48,7 +48,6 @@ public class EjbSeatService implements LocalSeatService, RemoteSeatService {
 
 	@Override
 	public List<Seat> findAcceptedByTrip(Long id) {
-		// TODO Auto-generated method stub
 		return new findAcceptedByTrip(id).listAcceptedByTrip();
 	}
 

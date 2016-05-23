@@ -16,7 +16,6 @@ public class findAcceptedByTrip {
 	}
 
 	public List<Seat> listAcceptedByTrip() {
-		// TODO Auto-generated method stub
 		return Factories.persistence.newSeatDao().findAcceptedByTrip(idTrip);
 	}
 

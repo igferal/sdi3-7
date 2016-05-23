@@ -40,7 +40,6 @@ public class Main {
 	}
 
 	private void run() throws Exception {
-
 		client = new ResteasyClientBuilder().build()
 				.register(new Authenticator("sdi", "password"))
 				.target(REST_SERVICE_URL).proxy(ShareMyTripsRestService.class);
@@ -55,17 +54,23 @@ public class Main {
 		Topic topic = (Topic) Jndi.find(SDI3_7_TOPIC);
 		TopicConnection con = factory.createTopicConnection("sdi", "password");
 
-		new Subscriber(con, topic, user, idTrip);
+		Subscriber subs = new Subscriber(con, topic, user, idTrip);
 
 		con.start();
 
+		Console.println("Bienvenido al chat del viaje " + idTrip);
+		Console.println("Conectado como " + user.getLogin() + "\n");
+		Console.println("Escriba y presione enter para enviar sus mensajes");
+		
 		ask();
 
+		subs.close();
+		con.close();
 	}
 
 	private void ask() throws JMSException {
 		while (true) {
-			String msg = Console.readString("Mensaje a enviar");
+			String msg = Console.readString();
 			sendMessage(msg);
 		}
 	}
@@ -131,7 +136,7 @@ public class Main {
 	}
 
 	private void selectTrip() {
-		idTrip = Console.readLong("IDTRIP a seleccionar");
+		idTrip = Console.readLong("\nIDTRIP a seleccionar");
 
 		Trip trip = client.findTrip(idTrip);
 

@@ -4,11 +4,9 @@ package com.sdi.persistence.util;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLTimeoutException;
 import java.util.Properties;
 
 import com.sdi.persistence.PersistenceException;
@@ -17,10 +15,6 @@ public class Jdbc {
 	private static final String DATABASE_PROPERTIES_FILE = "/database.properties";
 	private static final String QUERIES_PROPERTIES_FILE = "/sql_queries.properties";
 	
-	private static final String DATABASE_URL;
-	private static final String DATABASE_USER;
-	private static final String DATABASE_PASSWORD;
-	
 	private static Properties sqlQueries;
 	
 	private static JdbcHelper jdbc = new JdbcHelper(DATABASE_PROPERTIES_FILE);
@@ -28,10 +22,6 @@ public class Jdbc {
 	static {
 		Properties dbConfig = loadProperties( DATABASE_PROPERTIES_FILE );
 		sqlQueries = loadProperties( QUERIES_PROPERTIES_FILE );
-		
-		DATABASE_URL = dbConfig.getProperty( "DATABASE_URL" );
-		DATABASE_USER = dbConfig.getProperty( "DATABASE_USER" );
-		DATABASE_PASSWORD = dbConfig.getProperty( "DATABASE_PASSWORD" );
 	
 		try {
 			Class.forName( dbConfig.getProperty( "DATABASE_DRIVER" ) );
@@ -49,25 +39,6 @@ public class Jdbc {
 
 		return con;
 	}
-	
-//	public static Connection createConnection() {
-//		try {
-//			Connection con = DriverManager.getConnection(
-//					DATABASE_URL, 
-//					DATABASE_USER, 
-//					DATABASE_PASSWORD
-//				);
-//			
-//			threadLocal.set(con);
-//			
-//			return con;
-//			
-//		} catch (SQLTimeoutException e) {
-//			throw new PersistenceException("Timeout opennig JDBC conection", e);
-//		} catch (SQLException e) {
-//			throw new PersistenceException("An unexpected JDBC error has ocurred", e);
-//		}
-//	}
 
 	public static Connection getCurrentConnection() {
 		Connection con = threadLocal.get();

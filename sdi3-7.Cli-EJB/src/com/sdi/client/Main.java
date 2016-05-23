@@ -1,5 +1,10 @@
 package com.sdi.client;
 
+import com.sdi.client.action.CancelUserAction;
+import com.sdi.client.action.DeleteRatingsAction;
+import com.sdi.client.action.ListRatingsAction;
+import com.sdi.client.action.ListUsersAction;
+
 import alb.util.menu.BaseMenu;
 
 public class Main extends BaseMenu {

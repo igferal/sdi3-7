@@ -19,8 +19,6 @@ public class ListPendingUsers {
 	}
 
 	public List<User> listPending() {
-		// TODO Auto-generated method stub
-
 		List<User> pendientes = new ArrayList<User>();
 		List<Application> applications = Factories.persistence
 				.newApplicationDao().appNotInSeat(idTrip);

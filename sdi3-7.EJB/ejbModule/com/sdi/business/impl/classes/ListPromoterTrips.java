@@ -14,7 +14,6 @@ public class ListPromoterTrips {
 	}
 
 	public List<Trip> listTrips() {
-		// TODO Auto-generated method stub
 		return Factories.persistence.newTripDao().dateAscendingPromoter(id);
 	}
 }
