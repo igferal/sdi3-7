@@ -1,4 +1,4 @@
-package client;
+package com.sdi.client;
 
 import java.util.List;
 
@@ -11,10 +11,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.sdi.model.Trip;
+import com.sdi.model.User;
 
 
-import client.model.Trip;
-import client.model.User;
+
+
 
 @Path("/TripServiceRs")
 public interface ShareMyTripsRestService {

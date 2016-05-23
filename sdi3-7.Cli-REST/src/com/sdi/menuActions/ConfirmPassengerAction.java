@@ -1,10 +1,11 @@
-package client.menuActions;
+package com.sdi.menuActions;
 
 import java.util.List;
 
-import client.Main;
-import client.model.Trip;
-import client.model.User;
+import com.sdi.Main;
+import com.sdi.model.Trip;
+import com.sdi.model.User;
+
 import alb.util.console.Console;
 import alb.util.menu.Action;
 

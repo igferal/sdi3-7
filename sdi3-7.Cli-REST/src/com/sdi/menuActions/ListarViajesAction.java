@@ -1,7 +1,8 @@
-package client.menuActions;
+package com.sdi.menuActions;
 
-import client.Main;
-import client.model.Trip;
+import com.sdi.Main;
+import com.sdi.model.Trip;
+
 import alb.util.console.Console;
 import alb.util.menu.Action;
 

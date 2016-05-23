@@ -1,13 +1,17 @@
-package client;
+package com.sdi;
 
 import java.util.List;
 
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 
-import client.menuActions.ConfirmPassengerAction;
-import client.menuActions.ListarViajesAction;
-import client.model.Trip;
-import client.model.User;
+import com.sdi.client.Authenticator;
+import com.sdi.client.ShareMyTripsRestService;
+
+import com.sdi.menuActions.ConfirmPassengerAction;
+import com.sdi.menuActions.ListarViajesAction;
+import com.sdi.model.Trip;
+import com.sdi.model.User;
+
 import alb.util.console.Console;
 import alb.util.menu.BaseMenu;
 
@@ -19,7 +23,9 @@ public class Main extends BaseMenu {
 	public static List<Trip> trips;
 
 	public static void main(String[] args) {
+		
 		new Main().execute();
+
 	}
 
 	private Main() {
