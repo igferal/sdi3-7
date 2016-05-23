@@ -4,3 +4,9 @@ c:\users\ignacio fernández\documents\visual studio 2015\Projects\sdi3-7.Cli-SOA
 c:\users\ignacio fernández\documents\visual studio 2015\Projects\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\bin\Debug\sdi3-7.Cli-SOAPCS.pdb
 c:\users\ignacio fernández\documents\visual studio 2015\Projects\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\obj\Debug\sdi3-7.Cli-SOAPCS.exe
 c:\users\ignacio fernández\documents\visual studio 2015\Projects\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\obj\Debug\sdi3-7.Cli-SOAPCS.pdb
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\bin\Debug\sdi3-7.Cli-SOAPCS.exe.config
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\obj\Debug\sdi3-7.Cli-SOAPCS.exe
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\obj\Debug\sdi3-7.Cli-SOAPCS.pdb
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\obj\Debug\sdi3-7.Cli-SOAPCS.csprojResolveAssemblyReference.cache
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\bin\Debug\sdi3-7.Cli-SOAPCS.exe
+C:\Users\Ignacio Fernández\Desktop\sdi3-7\sdi3-7.Cli-SOAPCS\sdi3-7.Cli-SOAPCS\bin\Debug\sdi3-7.Cli-SOAPCS.pdb

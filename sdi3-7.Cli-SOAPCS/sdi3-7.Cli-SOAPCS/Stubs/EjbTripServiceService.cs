@@ -43,6 +43,8 @@ public partial class EjbTripServiceService : System.Web.Services.Protocols.SoapH
     
     private System.Threading.SendOrPostCallback updateOperationCompleted;
     
+    private System.Threading.SendOrPostCallback tripsAcceptedOperationCompleted;
+    
     private System.Threading.SendOrPostCallback travelsPromoterOperationCompleted;
     
     /// <remarks/>
@@ -73,6 +75,9 @@ public partial class EjbTripServiceService : System.Web.Services.Protocols.SoapH
     
     /// <remarks/>
     public event updateCompletedEventHandler updateCompleted;
+    
+    /// <remarks/>
+    public event tripsAcceptedCompletedEventHandler tripsAcceptedCompleted;
     
     /// <remarks/>
     public event travelsPromoterCompletedEventHandler travelsPromoterCompleted;
@@ -425,6 +430,51 @@ public partial class EjbTripServiceService : System.Web.Services.Protocols.SoapH
         if ((this.updateCompleted != null)) {
             System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
             this.updateCompleted(this, new System.ComponentModel.AsyncCompletedEventArgs(invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+        }
+    }
+    
+    /// <remarks/>
+    [System.Web.Services.Protocols.SoapDocumentMethodAttribute("", RequestNamespace="http://impl.business.sdi.com/", ResponseNamespace="http://impl.business.sdi.com/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+    [return: System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public trip[] tripsAccepted([System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] long arg0, [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)] [System.Xml.Serialization.XmlIgnoreAttribute()] bool arg0Specified) {
+        object[] results = this.Invoke("tripsAccepted", new object[] {
+                    arg0,
+                    arg0Specified});
+        return ((trip[])(results[0]));
+    }
+    
+    /// <remarks/>
+    public System.IAsyncResult BegintripsAccepted(long arg0, bool arg0Specified, System.AsyncCallback callback, object asyncState) {
+        return this.BeginInvoke("tripsAccepted", new object[] {
+                    arg0,
+                    arg0Specified}, callback, asyncState);
+    }
+    
+    /// <remarks/>
+    public trip[] EndtripsAccepted(System.IAsyncResult asyncResult) {
+        object[] results = this.EndInvoke(asyncResult);
+        return ((trip[])(results[0]));
+    }
+    
+    /// <remarks/>
+    public void tripsAcceptedAsync(long arg0, bool arg0Specified) {
+        this.tripsAcceptedAsync(arg0, arg0Specified, null);
+    }
+    
+    /// <remarks/>
+    public void tripsAcceptedAsync(long arg0, bool arg0Specified, object userState) {
+        if ((this.tripsAcceptedOperationCompleted == null)) {
+            this.tripsAcceptedOperationCompleted = new System.Threading.SendOrPostCallback(this.OntripsAcceptedOperationCompleted);
+        }
+        this.InvokeAsync("tripsAccepted", new object[] {
+                    arg0,
+                    arg0Specified}, this.tripsAcceptedOperationCompleted, userState);
+    }
+    
+    private void OntripsAcceptedOperationCompleted(object arg) {
+        if ((this.tripsAcceptedCompleted != null)) {
+            System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+            this.tripsAcceptedCompleted(this, new tripsAcceptedCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
         }
     }
     
@@ -857,6 +907,144 @@ public partial class addressPoint {
 public partial class waypoint {
 }
 
+/// <comentarios/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://impl.business.sdi.com/")]
+public partial class user {
+    
+    private string emailField;
+    
+    private long idField;
+    
+    private bool idFieldSpecified;
+    
+    private string loginField;
+    
+    private string nameField;
+    
+    private string passwordField;
+    
+    private userStatus statusField;
+    
+    private bool statusFieldSpecified;
+    
+    private string surnameField;
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string email {
+        get {
+            return this.emailField;
+        }
+        set {
+            this.emailField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public long id {
+        get {
+            return this.idField;
+        }
+        set {
+            this.idField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool idSpecified {
+        get {
+            return this.idFieldSpecified;
+        }
+        set {
+            this.idFieldSpecified = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string login {
+        get {
+            return this.loginField;
+        }
+        set {
+            this.loginField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string name {
+        get {
+            return this.nameField;
+        }
+        set {
+            this.nameField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string password {
+        get {
+            return this.passwordField;
+        }
+        set {
+            this.passwordField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public userStatus status {
+        get {
+            return this.statusField;
+        }
+        set {
+            this.statusField = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlIgnoreAttribute()]
+    public bool statusSpecified {
+        get {
+            return this.statusFieldSpecified;
+        }
+        set {
+            this.statusFieldSpecified = value;
+        }
+    }
+    
+    /// <comentarios/>
+    [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+    public string surname {
+        get {
+            return this.surnameField;
+        }
+        set {
+            this.surnameField = value;
+        }
+    }
+}
+
+/// <comentarios/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.SerializableAttribute()]
+[System.Xml.Serialization.XmlTypeAttribute(Namespace="http://impl.business.sdi.com/")]
+public enum userStatus {
+    
+    /// <comentarios/>
+    ACTIVE,
+    
+    /// <comentarios/>
+    CANCELLED,
+}
 
 /// <comentarios/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
@@ -1018,6 +1206,32 @@ public partial class findTripCompletedEventArgs : System.ComponentModel.AsyncCom
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
 public delegate void updateCompletedEventHandler(object sender, System.ComponentModel.AsyncCompletedEventArgs e);
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+public delegate void tripsAcceptedCompletedEventHandler(object sender, tripsAcceptedCompletedEventArgs e);
+
+/// <remarks/>
+[System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
+[System.Diagnostics.DebuggerStepThroughAttribute()]
+[System.ComponentModel.DesignerCategoryAttribute("code")]
+public partial class tripsAcceptedCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    
+    private object[] results;
+    
+    internal tripsAcceptedCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+            base(exception, cancelled, userState) {
+        this.results = results;
+    }
+    
+    /// <remarks/>
+    public trip[] Result {
+        get {
+            this.RaiseExceptionIfNecessary();
+            return ((trip[])(this.results[0]));
+        }
+    }
+}
 
 /// <remarks/>
 [System.CodeDom.Compiler.GeneratedCodeAttribute("wsdl", "4.6.1055.0")]
