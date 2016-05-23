@@ -19,8 +19,8 @@ public class ListUsersAction implements Action {
 		System.out.printf("%s %s %s %s %s %s %s %s\n", "_IDUSER_",
 				"_LOGIN_________", "_NOMBRE________",
 				"_APELLIDOS_______________", "_EMAIL___________________",
-				"_ESTADO________", "_NUM VIAJES PROMOVIDOS___",
-				"_NUM VIAJES PARTICIPANDO_");
+				"_ESTADO________", "_NUM_VIAJES_PROMOVIDOS___",
+				"_NUM_VIAJES_HA_PARTICIPADO_");
 
 		int promotedTravels = 0;
 		int participatedTravels = 0;
