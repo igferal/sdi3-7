@@ -15,6 +15,6 @@ import com.sdi.business.impl.classes.TripsUpdateStatusTask;
 public class BeanApplication {
 
 	public BeanApplication() {
-		new TripsUpdateStatusTask();
+//		new TripsUpdateStatusTask();
 	}
 }
