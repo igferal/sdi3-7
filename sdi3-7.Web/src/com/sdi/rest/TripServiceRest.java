@@ -55,7 +55,7 @@ public interface TripServiceRest {
 	@GET
 	@Path("/findTrip{idTrip}")
 	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-	Trip findTrip(@PathParam(value="findTrip") Long idTrip);
+	Trip findTrip(@PathParam(value="idTrip") Long idTrip);
 ;
 
 }
