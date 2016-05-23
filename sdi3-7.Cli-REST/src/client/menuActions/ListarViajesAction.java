@@ -26,7 +26,7 @@ public class ListarViajesAction implements Action {
 		Console.println("ID: " + trip.getId() + " "
 				+ trip.getDestination().getCity() + " ("
 				+ trip.getDeparture().getCountry() + ") - "
-				+ trip.getDeparture().getCity() + " ("
+				+ trip.getDestination().getCity() + " ("
 				+ trip.getDestination().getCountry() + ")" +  "hora salida: "
 				+ trip.getDepartureDate());
 

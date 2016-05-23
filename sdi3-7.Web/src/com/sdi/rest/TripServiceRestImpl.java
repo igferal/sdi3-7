@@ -40,4 +40,14 @@ public class TripServiceRestImpl implements TripServiceRest {
 		return Factories.services.getTripService().pendingUsers(idTrip,
 				idPromoter);
 	}
+
+	@Override
+	public List<Trip> getPromoterTrips(Long idPromoter) {
+		return Factories.services.getTripService().travelsPromoter(idPromoter);
+	}
+
+	@Override
+	public List<Trip> getTripsAccepted(Long idPromoter) {
+		return Factories.services.getTripService().tripsAccepted(idPromoter);
+	}
 }
