@@ -124,11 +124,12 @@ namespace sdi3_7.Cli_SOAPCS
             {
                 foreach (rating rating in ratings)
                 {
-                    trip = tServices.findTrip(rating.id, true);
+                    trip = tServices.findTrip(rating.seatFromTripId, true);
                     Console.WriteLine(
-                            trip.destination.city + " " +
-                            rating.seatFromUserId + " " + rating.seatAboutUserId + " " +
-                            rating.value + "" + rating.comment);
+                            trip.destination.city + "                        " +
+                            rating.seatFromUserId + "                      " + rating.seatAboutUserId + 
+                            "                        " +
+                            rating.value + "              " + rating.comment);
                 }
             }
 
