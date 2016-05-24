@@ -1,29 +1,29 @@
 package com.sdi.business.impl.classes;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-import javax.ejb.LocalBean;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.ejb.Timeout;
-import javax.ejb.Timer;
-import javax.ejb.TimerService;
-
-import com.sdi.infrastructure.Factories;
-import com.sdi.model.Trip;
-import com.sdi.model.TripStatus;
-import com.sdi.persistence.TripDao;
-import com.sdi.persistence.util.DateUtil;
+//import java.util.Date;
+//import java.util.List;
+//
+//import javax.annotation.PostConstruct;
+//import javax.annotation.Resource;
+//import javax.ejb.LocalBean;
+//import javax.ejb.Singleton;
+//import javax.ejb.Startup;
+//import javax.ejb.Timeout;
+//import javax.ejb.Timer;
+//import javax.ejb.TimerService;
+//
+//import com.sdi.infrastructure.Factories;
+//import com.sdi.model.Trip;
+//import com.sdi.model.TripStatus;
+//import com.sdi.persistence.TripDao;
+//import com.sdi.persistence.util.DateUtil;
 
 //@Singleton
 //@LocalBean
 //@Startup
 public class TripsUpdateStatusTask {
-	public static final int interval = 3000;
-
+//	public static final int interval = 3000;
+//
 //	@Resource
 //	private TimerService timerService;
 //
