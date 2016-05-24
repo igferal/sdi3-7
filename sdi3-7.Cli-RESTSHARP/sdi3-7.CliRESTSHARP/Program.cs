@@ -105,7 +105,7 @@ namespace sdi3_7.CliRESTSHARP
 
         private static bool login(RestClient client)
         {
-            var request = new RestRequest("/login{name}/{password}", Method.POST);
+            var request = new RestRequest("/login{name}/{password}", Method.GET);
             Console.WriteLine("Inserte su usuario");
             string usuario = Console.ReadLine();
             Console.WriteLine("Inserte su contraseña");

@@ -21,7 +21,9 @@ public class ConfirmPassengerAction implements Action {
 		while (!isTrip(selectedTrip)) {
 			selectedTrip = Console
 					.readLong("Escoja el viaje para el que quiere confirmar"
-							+ " usuarios mediante su ID");
+							+ " usuarios mediante su ID, inserte 0 si quiere detener la confirmación");
+			if (selectedTrip == 0)
+				return;
 		}
 
 		boolean hasUsers = showUsers(selectedTrip);
@@ -33,7 +35,9 @@ public class ConfirmPassengerAction implements Action {
 		while (!isUserPendings(selectedUser)) {
 			selectedUser = Console
 					.readLong("Escoja el usuario para el que quiere confirmar"
-							+ " su asistencia \nmediante su ID");
+							+ " su asistencia \nmediante su ID, inserte 0 si quiere detener la confirmación");
+			if (selectedUser == 0)
+				return;
 		}
 
 		Main.client.confirmPassenger(selectedUser, selectedTrip);
